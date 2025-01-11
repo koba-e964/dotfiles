@@ -1,0 +1,43 @@
+{
+  "workbench.colorTheme": "Quiet Light",
+  "terminal.integrated.enableMultiLinePasteWarning": "never",
+  "files.readonlyFromPermissions": true,
+  "explorer.confirmDragAndDrop": false,
+  "go.toolsManagement.autoUpdate": true,
+  "go.alternateTools": {
+    "go": "/opt/homebrew/bin/go"
+  },
+  "git.openRepositoryInParentFolders": "always",
+  "[rust]": {
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": "rust-lang.rust-analyzer"
+  },
+  "[javascript][json][typescript][typescriptreact][json5][jsonc]": {
+    "editor.tabSize": 2,
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "hexeditor.dataInspector.autoReveal": false,
+  "hexeditor.showOpenFileButton": true,
+  "hexeditor.inspectorType": "sidebar",
+  "files.insertFinalNewline": true,
+  "editor.unicodeHighlight.nonBasicASCII": true,
+  "extensions.ignoreRecommendations": true,
+  "editor.renderWhitespace": "all",
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false,
+    "toml": false
+  },
+  "github.copilot.editor.enableAutoCompletions": true,
+  "files.associations": {
+    "*.sage": "python"
+  },
+  "python.analysis.extraPaths": [
+    "/Users/kobas-mac/local_python/lib/python3.12/site-packages"
+  ],
+  "git.ignoreMissingGitWarning": true,
+  "solidity.telemetry": false
+}

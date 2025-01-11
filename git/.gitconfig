@@ -1,0 +1,15 @@
+[user]
+	name = koba-e964
+	email = 3303362+koba-e964@users.noreply.github.com
+	signingkey = 7644C3550BFD7D42
+[push]
+	autoSetupRemote = true
+[core]
+	editor = vi
+[init]
+	defaultBranch = main
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
