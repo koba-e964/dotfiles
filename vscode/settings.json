@@ -39,5 +39,6 @@
     "/Users/kobas-mac/local_python/lib/python3.12/site-packages"
   ],
   "git.ignoreMissingGitWarning": true,
-  "solidity.telemetry": false
+  "solidity.telemetry": false,
+  "makefile.configureOnOpen": false
 }

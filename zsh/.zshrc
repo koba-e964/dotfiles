@@ -50,3 +50,11 @@ export PATH="/Users/kobas-mac/Downloads/binaryen-version_120_b/bin:${PATH}"
 
 # cargo
 . "$HOME/.cargo/env"
+
+# gem
+export PATH="/opt/homebrew/lib/ruby/gems/3.4.0/bin:${PATH}"
+
+# https://qiita.com/nishina555/items/63ebd4a508a09c481150
+[[ -d ~/.rbenv  ]] && \
+  export PATH=${HOME}/.rbenv/bin:${PATH} && \
+  eval "$(rbenv init -)"

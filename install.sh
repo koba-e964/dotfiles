@@ -9,7 +9,7 @@ if [ "$(uname)" == "Darwin" ]; then
     if ! command -v brew >/dev/null; then
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     fi
-    brew install git openssl@3 git-lfs yq jq go git-crypt binutils binwalk openssh ghc python@3 nodebrew sqlite
+    brew install git openssl@3 git-lfs yq jq go git-crypt binutils binwalk openssh ghc python@3 nodebrew sqlite rbenv ruby-build
 else
     # Linux
     true
