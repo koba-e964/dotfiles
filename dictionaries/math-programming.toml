@@ -1,0 +1,69 @@
+# 圏論
+[[words]]
+phrase = "圏論"
+shortcut = "けんろん"
+
+[[words]]
+phrase = "関手"
+shortcut = "かんしゅ"
+
+[[words]]
+phrase = "随伴"
+shortcut = "ずいはん"
+
+[[words]]
+phrase = "モナド"
+shortcut = "もなど"
+
+[[words]]
+phrase = "アプリカティブ"
+shortcut = "あぷりかてぃぶ"
+
+[[words]]
+phrase = "米田の補題"
+shortcut = "よねだのほだい"
+
+[[words]]
+phrase = "代数"
+shortcut = "だいすう"
+
+[[words]]
+phrase = "余代数"
+shortcut = "よだいすう"
+
+[[words]]
+phrase = "双対"
+shortcut = "そうつい"
+
+[[words]]
+phrase = "直積"
+shortcut = "ちょくせき"
+
+[[words]]
+phrase = "直和"
+shortcut = "ちょくわ"
+
+[[words]]
+phrase = "普遍性"
+shortcut = "ふへんせい"
+
+[[words]]
+phrase = "豊穣圏"
+shortcut = "ほうじょうけん"
+
+[[words]]
+phrase = "トポス"
+shortcut = "とぽす"
+
+# グラフ理論
+[[words]]
+phrase = "無向グラフ"
+shortcut = "むこうぐらふ"
+
+[[words]]
+phrase = "有向グラフ"
+shortcut = "ゆうこうぐらふ"
+
+[[words]]
+phrase = "強連結成分分解"
+shortcut = "きょうれんけつせいぶんぶんかい"
