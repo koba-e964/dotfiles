@@ -1,0 +1,12 @@
+[project]
+name = "dotfiles"
+version = "2025.12.25"
+description = "dotfiles"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "pylint>=4.0.4",
+]
