@@ -6,31 +6,31 @@ jobs:
   build:
     name: Run pylint on Python scripts
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-script:
-          - dictionaries/generate_plist.py
-    steps:
-    - uses: actions/checkout@v6
-    - name: Set up Python
-      uses: actions/setup-python@v6
-      with:
-        python-version-file: ".python-version"
-    # Ref: https://qiita.com/hiroki-yod/items/809d11ef0b533f317d78
-    - name: Install uv
-      uses: astral-sh/setup-uv@681c641aba71e4a1c380be3ab5e12ad51f415867 # v7.1.6
-      with:
-        # https://github.com/astral-sh/setup-uv/blob/v7.1.6/src/download/checksum/known-checksums.ts#L35-L36
-        # x86_64-unknown-linux-gnu-0.9.17
-        version: "0.9.17"
-        checksum: "0114d54f9aafd07516cf1cadfe72afa970f5fd293fbe82dd924b8a7b42c984d8"
-    - name: Install the project
-      run: uv sync --all-extras --dev
 
-    - name: Analyze the code with pylint
-      run: |
-        uv run pylint ${{ matrix.python-script }} --fail-under=9
-    - name: Run executables
-      working-directory: dictionaries/
-      run: |
-        uv run python generate_plist.py
+    steps:
+      - uses: actions/checkout@v6
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version-file: ".python-version"
+      # Ref: https://qiita.com/hiroki-yod/items/809d11ef0b533f317d78
+      - name: Install uv
+        uses: astral-sh/setup-uv@681c641aba71e4a1c380be3ab5e12ad51f415867 # v7.1.6
+        with:
+          # https://github.com/astral-sh/setup-uv/blob/v7.1.6/src/download/checksum/known-checksums.ts#L35-L36
+          # x86_64-unknown-linux-gnu-0.9.17
+          version: "0.9.17"
+          checksum: "0114d54f9aafd07516cf1cadfe72afa970f5fd293fbe82dd924b8a7b42c984d8"
+      - name: Install the project
+        run: uv sync --all-extras --dev
+
+      - name: Analyze the code with pylint
+        run: |
+          uv run pylint dictionaries/generate_plist.py --fail-under=9
+      - name: Analyze the code with mypy
+        run: |
+          uv run mypy dictionaries/generate_plist.py --strict
+      - name: Run executables
+        working-directory: dictionaries/
+        run: |
+          uv run python generate_plist.py
