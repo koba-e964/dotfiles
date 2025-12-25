@@ -25,13 +25,12 @@
   "extensions.ignoreRecommendations": true,
   "editor.renderWhitespace": "all",
   "github.copilot.enable": {
-    "*": true,
+    "*": false,
     "plaintext": false,
     "markdown": false,
     "scminput": false,
     "toml": false
   },
-  "github.copilot.editor.enableAutoCompletions": true,
   "files.associations": {
     "*.sage": "python"
   },
@@ -40,5 +39,10 @@
   ],
   "git.ignoreMissingGitWarning": true,
   "solidity.telemetry": false,
-  "makefile.configureOnOpen": false
+  "makefile.configureOnOpen": false,
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "files.autoGuessEncoding": true,
+  "lean4.alwaysAskBeforeInstallingLeanVersions": false,
+  "typescript.experimental.useTsgo": true,
+  "python.analysis.typeCheckingMode": "strict"
 }

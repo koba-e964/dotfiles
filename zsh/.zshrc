@@ -58,3 +58,10 @@ export PATH="/opt/homebrew/lib/ruby/gems/3.4.0/bin:${PATH}"
 [[ -d ~/.rbenv  ]] && \
   export PATH=${HOME}/.rbenv/bin:${PATH} && \
   eval "$(rbenv init -)"
+
+# bun completions
+[ -s "/Users/kobas-mac/.bun/_bun" ] && source "/Users/kobas-mac/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
