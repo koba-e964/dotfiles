@@ -1,7 +1,10 @@
 """
 Mac 用のユーザ辞書の plist ファイルを生成する。
 """
+import sys
+from pathlib import Path
 from typing import TypedDict
+from xml.sax.saxutils import escape
 
 import tomllib
 
@@ -28,9 +31,9 @@ def emit_as_plist(entries: list[Entry], outfilename: str) -> None:
         for entry in entries:
             print('\t<dict>', file=outfile)
             print('\t\t<key>phrase</key>', file=outfile)
-            print(f'\t\t<string>{entry["phrase"]}</string>', file=outfile)
+            print(f'\t\t<string>{escape(entry["phrase"])}</string>', file=outfile)
             print('\t\t<key>shortcut</key>', file=outfile)
-            print(f'\t\t<string>{entry["shortcut"]}</string>', file=outfile)
+            print(f'\t\t<string>{escape(entry["shortcut"])}</string>', file=outfile)
             print('\t</dict>', file=outfile)
         print('</array>', file=outfile)
         print('</plist>', file=outfile)
@@ -38,14 +41,17 @@ def emit_as_plist(entries: list[Entry], outfilename: str) -> None:
 def main() -> None:
     """main"""
     entries: list[Entry] = []
-    with open('linguistics.toml', 'rb') as fp:
-        dat = tomllib.load(fp)
-        for item in dat['words']:
-            entry: Entry = {
-                'phrase': item['phrase'],
-                'shortcut': item['shortcut'],
-            }
-            entries.append(entry)
+    # find all toml files
+    for toml_path in sorted(Path('.').glob('*.toml')):
+        print(f'Loading {toml_path}...', file=sys.stderr)
+        with toml_path.open('rb') as fp:
+            dat = tomllib.load(fp)
+            for item in dat.get('words', []):
+                entry: Entry = {
+                    'phrase': item['phrase'],
+                    'shortcut': item['shortcut'],
+                }
+                entries.append(entry)
     emit_as_plist(entries, 'user-dictionary.plist')
 
 if __name__ == '__main__':
