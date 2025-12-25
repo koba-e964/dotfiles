@@ -30,3 +30,7 @@ jobs:
     - name: Analyze the code with pylint
       run: |
         uv run pylint ${{ matrix.python-script }} --fail-under=9
+    - name: Run executables
+      working-directory: dictionaries/
+      run: |
+        uv run python generate_plist.py
