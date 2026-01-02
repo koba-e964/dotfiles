@@ -9,8 +9,7 @@
   },
   "git.openRepositoryInParentFolders": "always",
   "[rust]": {
-    "editor.formatOnSave": false,
-    "editor.defaultFormatter": "rust-lang.rust-analyzer"
+    "editor.formatOnSave": false
   },
   "[javascript][json][typescript][typescriptreact][json5][jsonc]": {
     "editor.tabSize": 2,
@@ -34,9 +33,7 @@
   "files.associations": {
     "*.sage": "python"
   },
-  "python.analysis.extraPaths": [
-    "/Users/kobas-mac/local_python/lib/python3.12/site-packages"
-  ],
+  "python.analysis.extraPaths": ["~/local_python/lib/python3.12/site-packages"],
   "git.ignoreMissingGitWarning": true,
   "solidity.telemetry": false,
   "makefile.configureOnOpen": false,
