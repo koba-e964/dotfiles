@@ -1,7 +1,7 @@
 #!/bin/sh
 set -eu
 
-# VSCode has to be installed already.
+# VSCode has to be installed beforehand.
 
 # https://github.com/mrsekut/dotfiles/blob/master/vscode/settings/index.sh
 CURRENT=$(cd $(dirname $0) && pwd)
