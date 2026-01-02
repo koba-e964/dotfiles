@@ -7,3 +7,5 @@ mkdir -p ~/.zsh
 curl -sS -o ~/.zsh/git-prompt.sh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
 curl -sS -o ~/.zsh/git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
 curl -sS -o ~/.zsh/_git https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh
+
+sha384sum ~/.zsh/git-prompt.sh ~/.zsh/git-completion.bash ~/.zsh/_git
