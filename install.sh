@@ -30,7 +30,7 @@ fi
 nix profile add nixpkgs#stow --extra-experimental-features nix-command --extra-experimental-features flakes
 
 # シンボリックリンクを作成
-stow --target="${HOME}" --verbose zsh vscode
+stow --target="${HOME}" --verbose zsh vscode cargo
 ln -sf ${DIR}/git/.gitconfig ~/.gitconfig
 
 echo "Dotfiles setup complete!"
