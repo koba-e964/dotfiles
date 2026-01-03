@@ -33,4 +33,14 @@ nix profile add nixpkgs#stow --extra-experimental-features nix-command --extra-e
 stow --target="${HOME}" --verbose zsh vscode cargo
 ln -sf ${DIR}/git/.gitconfig ~/.gitconfig
 
+# VSCode extensions
+# https://note.com/teitei_tk/n/n7204cb8d97c5
+if command -v code >/dev/null; then
+    for line in $(cat ./vscode-scripts/extensions);
+    do
+        code --install-extension $line
+    done
+    code --list-extensions >vscode-scripts/extensions
+fi
+
 echo "Dotfiles setup complete!"
