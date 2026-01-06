@@ -10,7 +10,8 @@ if [ "$(uname)" == "Darwin" ]; then
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     fi
     brew install --quiet \
-        git openssl@3 git-lfs yq jq go git-crypt binutils binwalk openssh ghc graphviz llvm python@3 nodebrew sqlite rbenv ruby-build xz
+        git openssl@3 git-lfs yq jq go git-crypt binutils binwalk openssh ghc graphviz llvm python@3 nodebrew sqlite rbenv ruby-build xz \
+        uv ruby gnupg
 else
     # Linux
     true
@@ -27,7 +28,8 @@ if ! command -v nix >/dev/null; then
     curl -L https://releases.nixos.org/nix/nix-${NIX_VERSION}/install | sh
 fi
 
-nix profile add nixpkgs#stow --extra-experimental-features nix-command --extra-experimental-features flakes
+nix profile --extra-experimental-features "nix-command flakes" add nixpkgs#stow
+sudo nix run nix-darwin/nix-darwin-25.05#darwin-rebuild --extra-experimental-features 'nix-command flakes' -- --flake .#default switch
 
 # シンボリックリンクを作成
 stow --target="${HOME}" --verbose zsh vscode cargo
