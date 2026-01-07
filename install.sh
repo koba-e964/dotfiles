@@ -28,6 +28,11 @@ if ! command -v nix >/dev/null; then
     curl -L https://releases.nixos.org/nix/nix-${NIX_VERSION}/install | sh
 fi
 
+# https://nix-community.github.io/home-manager/index.xhtml#sec-install-standalone
+nix-channel --add https://github.com/nix-community/home-manager/archive/release-25.11.tar.gz home-manager
+nix-channel --update
+nix-shell '<home-manager>' -A install --extra-experimental-features 'nix-command flakes'
+
 nix profile --extra-experimental-features "nix-command flakes" add nixpkgs#stow
 sudo nix run nix-darwin/nix-darwin-25.05#darwin-rebuild --extra-experimental-features 'nix-command flakes' -- --flake .#default switch
 
