@@ -32,7 +32,7 @@ nix profile --extra-experimental-features "nix-command flakes" add nixpkgs#stow
 sudo nix run nix-darwin/nix-darwin-25.05#darwin-rebuild --extra-experimental-features 'nix-command flakes' -- --flake .#default switch
 
 # シンボリックリンクを作成
-stow --target="${HOME}" --verbose zsh vscode cargo
+stow --target="${HOME}" --verbose zsh vscode cargo nix
 ln -sf ${DIR}/git/.gitconfig ~/.gitconfig
 
 # VSCode extensions
