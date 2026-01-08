@@ -1,1 +1,4 @@
 Manage extensions in VSCode
+Manage Python environment (~/local_python)
+move zsh management to home.nix
+move git management to home.nix
