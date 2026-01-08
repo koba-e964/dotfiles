@@ -30,11 +30,13 @@ fi
 
 # https://nix-community.github.io/home-manager/index.xhtml#sec-install-standalone
 nix-channel --add https://github.com/nix-community/home-manager/archive/release-25.11.tar.gz home-manager
+# Pinning nixpkgs too
+# https://chatgpt.com/share/695f3f60-46f8-8010-a3e9-1e0393a7e259
+nix-channel --add https://nixos.org/channels/nixpkgs-25.11-darwin nixpkgs
 nix-channel --update
 nix-shell '<home-manager>' -A install --extra-experimental-features 'nix-command flakes'
 
 nix profile --extra-experimental-features "nix-command flakes" add nixpkgs#stow
-sudo nix run nix-darwin/nix-darwin-25.05#darwin-rebuild --extra-experimental-features 'nix-command flakes' -- --flake .#default switch
 
 # シンボリックリンクを作成
 stow --target="${HOME}" --verbose zsh vscode cargo nix
