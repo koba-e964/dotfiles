@@ -9,6 +9,19 @@
     programs = {
         zsh = {
             enable = true;
+            zsh-abbr = {
+                enable = true;
+                abbreviations = {
+                    d = "docker";
+                    g = "git";
+                    gco = "git commit";
+                    gnew = "git fetch --prune && git switch --detach origin/main";
+                    ga = "git add";
+                    gaa = "git add --all";
+                    gd = "git diff";
+                };
+            };
+
             envExtra = ''
                 . "$HOME/.cargo/env"
 
