@@ -26,7 +26,7 @@
                     gaa = "git add --all";
                     gd = "git diff";
                     gl = "git log";
-                    gush = "git push --tags";
+                    gush = "git push && git push --tags";
                     gull = "git pull";
                     gt = "git tag";
                     # gprev = "git switch --detach HEAD~; %1; git switch main";
