@@ -1,3 +1,9 @@
-Manage extensions in VSCode
+Manage settings in VSCode with nix
 Manage Python environment (~/local_python)
 move git management to home.nix
+add ignorePatterns to zsh/history
+Move envExtra's content to individual configs (3 lines)
+Move initContent's content to individual configs (67 lines)
+Use brew-nix
+Use Cloudflare Tunnel
+Use alacritty
