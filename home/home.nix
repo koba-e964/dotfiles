@@ -12,13 +12,31 @@
             zsh-abbr = {
                 enable = true;
                 abbreviations = {
+
+                    ez = "exec zsh";
+
+                    # docker
                     d = "docker";
+
+                    # git
                     g = "git";
                     gco = "git commit";
                     gnew = "git fetch --prune && git switch --detach origin/main";
                     ga = "git add";
                     gaa = "git add --all";
                     gd = "git diff";
+                    gl = "git log";
+                    gush = "git push --tags";
+                    gull = "git pull";
+                    gt = "git tag";
+                    # gprev = "git switch --detach HEAD~; %1; git switch main";
+
+                    # go
+
+                    # rust
+
+                    # nix
+                    nixapply = ''nix run home-manager/master -- switch --flake .#default --impure --extra-experimental-features "nix-command flakes"'';
                 };
             };
 
