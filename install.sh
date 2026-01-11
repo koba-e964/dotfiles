@@ -30,8 +30,6 @@ fi
 
 nix run .#home-manager -- switch --flake .#default --impure --extra-experimental-features "nix-command flakes"
 
-nix profile --extra-experimental-features "nix-command flakes" add nixpkgs#stow
-
 # シンボリックリンクを作成
 stow --target="${HOME}" --verbose vscode cargo nix
 ln -sf ${DIR}/git/.gitconfig ~/.gitconfig
