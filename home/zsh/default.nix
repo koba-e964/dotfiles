@@ -3,8 +3,9 @@
     zsh-abbr = {
         enable = true;
         abbreviations = {
-
+            # convenience
             ez = "exec zsh";
+            ro = "chmod a-w";
 
             # docker
             d = "docker";
@@ -27,7 +28,7 @@
             # rust
 
             # nix
-            nixapply = ''nix run home-manager/master -- switch --flake .#default --impure --extra-experimental-features "nix-command flakes"'';
+            nixapply = ''nix run .#home-manager -- switch --flake .#default --impure --extra-experimental-features "nix-command flakes"'';
         };
     };
 

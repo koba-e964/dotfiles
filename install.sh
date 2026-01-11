@@ -28,7 +28,7 @@ if ! command -v nix >/dev/null; then
     curl -L https://releases.nixos.org/nix/nix-${NIX_VERSION}/install | sh
 fi
 
-nix run home-manager/master -- switch --flake .#default --impure --extra-experimental-features "nix-command flakes"
+nix run .#home-manager -- switch --flake .#default --impure --extra-experimental-features "nix-command flakes"
 
 nix profile --extra-experimental-features "nix-command flakes" add nixpkgs#stow
 
