@@ -15,7 +15,7 @@
         pkgs = import nixpkgs {
             inherit system;
             config.allowUnfreePredicate = pkg:
-                builtins.elem (pkgs.lib.getName pkg) [
+                builtins.elem (nixpkgs.lib.getName pkg) [
                     "zsh-abbr"
                 ];
         };
