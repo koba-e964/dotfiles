@@ -34,11 +34,6 @@
         };
     };
 
-    envExtra = ''
-        . "$HOME/.cargo/env"
-
-        export PATH="$PATH:/Users/kobas-mac/.foundry/bin"
-    '';
     initContent = ''
 if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
@@ -89,9 +84,6 @@ export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 
 # binaryen
 export PATH="/Users/kobas-mac/Downloads/binaryen-version_120_b/bin:''${PATH}"
-
-# cargo
-. "$HOME/.cargo/env"
 
 # gem
 export PATH="/opt/homebrew/lib/ruby/gems/3.4.0/bin:''${PATH}"
