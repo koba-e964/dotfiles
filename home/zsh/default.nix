@@ -21,7 +21,7 @@
             gush = "git push && git push --tags";
             gull = "git pull";
             gt = "git tag";
-            # gprev = "git switch --detach HEAD~; %1; git switch main";
+            gprev = "git switch --detach HEAD~; %1; git switch main";
 
             # go
 
@@ -31,6 +31,11 @@
             nixapply = ''nix run .#home-manager -- switch --flake .#default --impure --extra-experimental-features "nix-command flakes"'';
         };
     };
+
+    sessionVariables = {
+        ABBR_SET_EXPANSION_CURSOR = "1";
+    };
+
 
     envExtra = ''
         . "$HOME/.cargo/env"
