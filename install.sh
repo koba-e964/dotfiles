@@ -26,9 +26,10 @@ fi
 if ! command -v nix >/dev/null; then
     NIX_VERSION=2.33.0
     curl -L https://releases.nixos.org/nix/nix-${NIX_VERSION}/install | sh
+    source /etc/zshrc
 fi
 
-nix run .#home-manager -- switch --flake .#default --impure --extra-experimental-features "nix-command flakes"
+nix run .#home-manager --extra-experimental-features "nix-command flakes" -- switch --flake .#default --impure --extra-experimental-features "nix-command flakes"
 
 # シンボリックリンクを作成
 stow --target="${HOME}" --verbose vscode cargo nix

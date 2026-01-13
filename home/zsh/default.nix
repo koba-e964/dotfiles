@@ -6,6 +6,7 @@
             # convenience
             ez = "exec zsh";
             ro = "chmod a-w";
+            ll = "ls -l";
 
             # docker
             d = "docker";
@@ -28,9 +29,10 @@
             # go
 
             # rust
+            rc = "rustc";
 
             # nix
-            nixapply = ''nix run .#home-manager -- switch --flake .#default --impure --extra-experimental-features "nix-command flakes"'';
+            nixapply = ''nix run .#home-manager --extra-experimental-features "nix-command flakes" -- switch --flake .#default --impure --extra-experimental-features "nix-command flakes"'';
         };
     };
 
