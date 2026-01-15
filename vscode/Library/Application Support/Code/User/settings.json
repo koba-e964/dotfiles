@@ -42,5 +42,6 @@
   "lean4.alwaysAskBeforeInstallingLeanVersions": false,
   "typescript.experimental.useTsgo": true,
   "python.analysis.typeCheckingMode": "strict",
-  "terminal.integrated.suggest.enabled": false
+  "terminal.integrated.suggest.enabled": false,
+  "terminal.integrated.initialHint": false
 }
