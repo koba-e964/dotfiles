@@ -22,8 +22,10 @@
             gush = "git push && git push --tags";
             gull = "git pull";
             gt = "git tag";
+            gta = "git tag --annotate --sign";
             gdesc = "git describe --tags";
             gsw = "git switch";
+            gst = "git status";
             # gprev = "git switch --detach HEAD~; %1; git switch main";
 
             # go

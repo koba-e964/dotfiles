@@ -7,3 +7,4 @@ Use brew-nix
 Use Cloudflare Tunnel
 Use alacritty
 Make rg search .github/ https://github.com/BurntSushi/ripgrep/discussions/3204
+add abbreviations with cursor positions
