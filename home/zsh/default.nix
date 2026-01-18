@@ -20,6 +20,7 @@
             gd = "git diff";
             gl = "git log";
             gush = "git push && git push --tags";
+            gushf = "git push --force-with-lease --force-if-includes";
             gull = "git pull";
             gt = "git tag";
             gta = "git tag --annotate --sign";
