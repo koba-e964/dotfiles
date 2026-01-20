@@ -6,7 +6,6 @@
         arguments = [
             "--hidden"
             "--glob=!.git/**"
-            "--glob=!.env/**"
         ];
     };
 
