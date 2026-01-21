@@ -7,3 +7,5 @@ Use brew-nix
 Use Cloudflare Tunnel
 Use alacritty
 add abbreviations with cursor positions
+Install pre-commit
+Manage Agent Skills
