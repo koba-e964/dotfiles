@@ -8,3 +8,4 @@ Use Cloudflare Tunnel
 Use alacritty
 add abbreviations with cursor positions
 Manage Agent Skills
+Use better cd
