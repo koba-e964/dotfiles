@@ -7,6 +7,10 @@
             ez = "exec zsh";
             ro = "chmod a-w";
             ll = "ls -l";
+            lla = "ls -al";
+            dush = "du -sh *";
+            dt = "TZ=Asia/Tokyo date";
+            genpass = "</dev/urandom LC_ALL=C tr -dc '[:alnum:]' | fold -w 20 | head -n 1";
 
             # docker
             d = "docker";
@@ -27,7 +31,12 @@
             gdesc = "git describe --tags";
             gsw = "git switch";
             gst = "git status";
+            gbr = "git branch";
+            gcsh = "git clone --depth=1";
             # gprev = "git switch --detach HEAD~; %1; git switch main";
+
+            # GitHub
+            ghpr = "gh pr create";
 
             # go
 
@@ -36,6 +45,9 @@
 
             # nix
             nixapply = ''nix run .#home-manager --extra-experimental-features "nix-command flakes" -- switch --flake .#default --impure --extra-experimental-features "nix-command flakes"'';
+
+            # Python
+            py = "python3";
         };
     };
 
