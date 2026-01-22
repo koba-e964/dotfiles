@@ -21,5 +21,6 @@
     home.packages = with pkgs; [
         fd
         stow
+        pre-commit
     ];
 }
