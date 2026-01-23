@@ -51,7 +51,30 @@
         };
     };
 
+    history = {
+        ignorePatterns = [
+            "ls#( *)#"
+            "cat#( *)#"
+            "df#( *)#"
+            "du#( *)#"
+            "cd *"
+            "git log"
+            "git status"
+        ];
+    };
+
     initContent = ''
+zshaddhistory() {
+  emulate -L zsh
+  setopt extendedglob
+  local line=''${1%%$'\n'}
+  if [[ -n ''${HISTORY_IGNORE:-} ]]; then
+    [[ $line != ''${~HISTORY_IGNORE} ]]
+  else
+    return 0
+  fi
+}
+
 if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 
