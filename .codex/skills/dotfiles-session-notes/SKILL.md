@@ -19,3 +19,10 @@ Capture session-specific behavior and preferences for this dotfiles repo so chan
 - In Nix multi-line strings (like `initContent`), escape zsh variables as `''${VAR}` to avoid Nix interpolation, e.g. `''${HISTORY_IGNORE:-}`.
 - `zshaddhistory` receives the command line with a trailing newline; strip it (e.g. `local line=''${1%%$'\n'}`) before matching ignore patterns.
 - If ignored commands still show on Up/Down, clear in-memory history with `history -c` then reload with `fc -R`.
+
+## EC2 Home Manager Profile
+
+- `flake.nix` defines `homeConfigurations.ec2` for EC2 using `x86_64-linux` and modules `[ ./ec2/ec2.nix ]`.
+- `nix run .#home-manager` on EC2 requires `apps.x86_64-linux.home-manager` (and/or packages) to be exported; add `packages.${ec2System}.home-manager` and `apps.${ec2System}.home-manager` alongside the Darwin outputs in `flake.nix`.
+- `ec2/ec2.nix` installs `codex`, `git`, `ripgrep`, `termux`, plus existing tools.
+- `nix flake check` may fail without access to the Nix cache; rerun with escalated permissions if the cache DB can't be opened.
