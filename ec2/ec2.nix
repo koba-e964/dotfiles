@@ -10,13 +10,22 @@
         tmux = {
             enable = true;
         };
+        zsh = import ./zsh;
+        git = {
+            enable = true;
+        };
+        gh = {
+            enable = true;
+        };
     };
     home.packages = with pkgs; [
         codex
         fd
-        git
         ripgrep
         stow
         pre-commit
+        go
+        cargo
+        util-linux
     ];
 }

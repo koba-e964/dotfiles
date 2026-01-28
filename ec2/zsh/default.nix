@@ -1,0 +1,104 @@
+{
+    enable = true;
+    zsh-abbr = {
+        enable = true;
+        abbreviations = {
+            # convenience
+            ez = "exec zsh";
+            ro = "chmod a-w";
+            ll = "ls -l";
+            lla = "ls -al";
+            dush = "du -sh *";
+            dt = "TZ=Asia/Tokyo date";
+            genpass = "</dev/urandom LC_ALL=C tr -dc '[:alnum:]' | fold -w 20 | head -n 1";
+
+            # docker
+            d = "docker";
+
+            # git
+            g = "git";
+            gco = "git commit";
+            gnew = "git fetch --prune && git switch --detach origin/main";
+            ga = "git add";
+            gaa = "git add --all";
+            gd = "git diff";
+            gl = "git log";
+            gush = "git push && git push --tags";
+            gushf = "git push --force-with-lease --force-if-includes";
+            gull = "git pull";
+            gt = "git tag";
+            gta = "git tag --annotate --sign";
+            gdesc = "git describe --tags";
+            gsw = "git switch";
+            gst = "git status";
+            gbr = "git branch";
+            gcsh = "git clone --depth=1";
+            # gprev = "git switch --detach HEAD~; %1; git switch main";
+
+            # go
+
+            # rust
+            rc = "rustc";
+
+            # nix
+            nixapply = ''nix run .#home-manager --extra-experimental-features "nix-command flakes" -- switch --flake .#default --impure --extra-experimental-features "nix-command flakes"'';
+
+            # Python
+            py = "python3";
+        };
+    };
+
+    history = {
+        ignorePatterns = [
+            "ls#( *)#"
+            "cat#( *)#"
+            "df#( *)#"
+            "du#( *)#"
+            "cd *"
+            "git log"
+            "git status"
+        ];
+    };
+
+    initContent = ''
+zshaddhistory() {
+  emulate -L zsh
+  setopt extendedglob
+  local line=''${1%%$'\n'}
+  if [[ -n ''${HISTORY_IGNORE:-} ]]; then
+    [[ $line != ''${~HISTORY_IGNORE} ]]
+  else
+    return 0
+  fi
+}
+
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+  autoload -Uz compinit
+  compinit
+fi
+
+# https://qiita.com/mikan3rd/items/d41a8ca26523f950ea9d
+
+# git-promptの読み込み
+source ~/.zsh/git-prompt.sh
+
+# git-completionの読み込み
+fpath=(~/.zsh $fpath)
+zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
+autoload -Uz compinit && compinit
+
+# プロンプトのオプション表示設定
+GIT_PS1_SHOWDIRTYSTATE=true
+GIT_PS1_SHOWUNTRACKEDFILES=true
+GIT_PS1_SHOWSTASHSTATE=true
+GIT_PS1_SHOWUPSTREAM=auto
+
+# プロンプトの表示設定(好きなようにカスタマイズ可)
+setopt PROMPT_SUBST ; PS1='%F{green}%n@%m%f: %F{cyan}%~%f %F{red}$(__git_ps1 "(%s)")%f
+\$ '
+
+export GPG_TTY=$(tty)
+    '';
+}
