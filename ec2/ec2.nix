@@ -13,6 +13,16 @@
         zsh = import ./zsh;
         git = {
             enable = true;
+            settings = {
+                init = {
+                    defaultBranch = "main";
+                };
+                user = {
+                    name = "koba-e964";
+                    email = "3303362+koba-e964@users.noreply.github.com";
+                };
+                push = { autoSetupRemote = true; };
+            };
         };
         gh = {
             enable = true;
