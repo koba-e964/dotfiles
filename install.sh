@@ -32,7 +32,7 @@ fi
 nix run .#home-manager --extra-experimental-features "nix-command flakes" -- switch --flake .#default --impure --extra-experimental-features "nix-command flakes"
 
 # シンボリックリンクを作成
-stow --target="${HOME}" --verbose vscode cargo nix
+stow --target="${HOME}" --verbose vscode cargo nix skills
 ln -sf ${DIR}/git/.gitconfig ~/.gitconfig
 
 # VSCode extensions
