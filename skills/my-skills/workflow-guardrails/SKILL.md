@@ -25,6 +25,10 @@ Apply the user's global workflow preferences on every task in every repository. 
 - If a task suggests rebasing (e.g., "update branch", "sync with main"), ask whether to rebase or merge.
 - If asked to cherry-pick, do not rebase unless explicitly instructed.
 
+### Always refresh origin refs
+
+- Before using or referring to any `origin/*` reference, run `git fetch --prune`.
+
 ## Usage notes
 
 - If a PR already exists but includes multiple changes, offer to split it by creating a new branch and cherry-picking the intended commit(s).
