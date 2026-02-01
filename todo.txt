@@ -6,4 +6,5 @@ Use brew-nix
 Use Cloudflare Tunnel
 Use alacritty
 add abbreviations with cursor positions
-Use better cd
+Use better cd (zoxide)
+Add codex custom rules https://zenn.dev/yorifuji/articles/3d44ca14ad6b3e
