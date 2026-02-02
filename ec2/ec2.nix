@@ -27,6 +27,9 @@
         gh = {
             enable = true;
         };
+        zoxide = {
+            enable = true;
+        };
     };
     home.packages = with pkgs; [
         codex

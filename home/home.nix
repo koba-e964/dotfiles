@@ -16,6 +16,9 @@
     programs = {
         zsh = import ./zsh;
         git = import ./git;
+        zoxide = {
+            enable = true;
+        };
     };
 
     home.packages = with pkgs; [
