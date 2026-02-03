@@ -24,7 +24,7 @@ Add or update `.pre-commit-config.yaml` for Go projects using repo-based hooks p
 ## Notes
 
 - Pre-commit has no separate lock file; version pinning happens in `.pre-commit-config.yaml` via `rev`.
-- Repo-based hooks avoid relying on locally installed binaries and make CI reproducible.
+- Prefer repo-based hooks over local hooks; they avoid relying on locally installed binaries and make CI reproducible.
 
 ## Example
 

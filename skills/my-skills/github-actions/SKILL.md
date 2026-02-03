@@ -1,6 +1,6 @@
 ---
 name: github-actions
-description: Enforce GitHub Actions security rules across any repo: actions/* can be trusted by tag, all other actions must be pinned to exact commit hashes with an inline version comment (e.g., # vX.Y.Z). Use for any workflow edits or reviews.
+description: "Enforce GitHub Actions security rules across any repo: actions/* can be trusted by tag, all other actions must be pinned to exact commit hashes with an inline version comment (e.g., # vX.Y.Z). Use for any workflow edits or reviews."
 ---
 
 # GitHub Actions Security Rules
