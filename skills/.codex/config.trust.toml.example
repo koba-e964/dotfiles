@@ -1,0 +1,29 @@
+[projects."/Users/kobas-mac/srcview/my-cheatsheets"]
+trust_level = "trusted"
+
+[projects."/Users/kobas-mac/srcview/experiments"]
+trust_level = "trusted"
+
+[projects."/Users/kobas-mac/srcview/fuel"]
+trust_level = "trusted"
+
+[projects."/Users/kobas-mac/srcview/my-project"]
+trust_level = "trusted"
+
+[projects."/Users/kobas-mac/srcview/bip32-typesafe"]
+trust_level = "trusted"
+
+[projects."/Users/kobas-mac/srcview/llm-prompts"]
+trust_level = "trusted"
+
+[projects."/Users/kobas-mac/srcview/contest"]
+trust_level = "trusted"
+
+[projects."/Users/kobas-mac/srcview/articles"]
+trust_level = "trusted"
+
+[projects."/Users/kobas-mac/srcview/dotfiles"]
+trust_level = "trusted"
+
+[projects."/Users/kobas-mac/srcview/iyaponyaan-kingdom-tax"]
+trust_level = "trusted"
