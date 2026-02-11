@@ -12,8 +12,8 @@
             dt = "TZ=Asia/Tokyo date";
             genpass = "</dev/urandom LC_ALL=C tr -dc '[:alnum:]' | fold -w 20 | head -n 1";
 
-            # docker
-            d = "docker";
+            # docker / podman
+            d = "podman";
 
             # git
             g = "git";

@@ -45,4 +45,9 @@ if command -v code >/dev/null; then
     code --list-extensions >vscode-scripts/extensions
 fi
 
+if podman machine list --format json | jq --exit-status 'length == 0'; then
+    podman machine init
+    podman machine start
+fi
+
 echo "Dotfiles setup complete!"
