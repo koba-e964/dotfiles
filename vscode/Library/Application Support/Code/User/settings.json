@@ -5,16 +5,16 @@
   "explorer.confirmDragAndDrop": false,
   "go.toolsManagement.autoUpdate": true,
   "go.alternateTools": {
-    "go": "/opt/homebrew/bin/go"
+    "go": "/opt/homebrew/bin/go",
   },
   "git.openRepositoryInParentFolders": "always",
   "[rust]": {
-    "editor.formatOnSave": false
+    "editor.formatOnSave": false,
   },
   "[javascript][json][typescript][typescriptreact][json5][jsonc]": {
     "editor.tabSize": 2,
     "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "hexeditor.dataInspector.autoReveal": false,
   "hexeditor.showOpenFileButton": true,
@@ -28,10 +28,10 @@
     "plaintext": false,
     "markdown": false,
     "scminput": false,
-    "toml": false
+    "toml": false,
   },
   "files.associations": {
-    "*.sage": "python"
+    "*.sage": "python",
   },
   "python.analysis.extraPaths": ["~/local_python/lib/python3.12/site-packages"],
   "git.ignoreMissingGitWarning": true,
@@ -43,5 +43,6 @@
   "typescript.experimental.useTsgo": true,
   "python.analysis.typeCheckingMode": "strict",
   "terminal.integrated.suggest.enabled": false,
-  "terminal.integrated.initialHint": false
+  "terminal.integrated.initialHint": false,
+  "terminal.integrated.stickyScroll.enabled": false,
 }
