@@ -18,7 +18,7 @@
             # git
             g = "git";
             gco = "git commit";
-            gnew = "git fetch --prune && git switch --detach origin/main";
+            gnew = "git fetch --prune && git switch --detach origin/HEAD";
             ga = "git add";
             gaa = "git add --all";
             gd = "git diff";
@@ -110,7 +110,6 @@ export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN
-export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
 # dotnet
 export PATH=$PATH:/usr/local/share/dotnet

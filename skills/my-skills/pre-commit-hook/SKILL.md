@@ -40,7 +40,7 @@ description: Safely introduce or update pre-commit hooks with minimal checks, re
 ```yaml
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.6.0
+    rev: a0b1c2d3... # v4.6.0
     hooks:
       - id: end-of-file-fixer
       - id: trailing-whitespace
@@ -51,3 +51,4 @@ repos:
 - repo に合わせて `language_version` や `files` の範囲を最小化する。
 - 導入前に必ずユーザーの意図（品質チェックの範囲）を確認する。
 - 可能な限り repo-based hooks を優先し、local hooks は必要最小限に留める。
+- すべての hooks で `rev` はコミットハッシュにタグのコメントをつけたものにすること。 `git ls-remote` などを使用して取得できる。
