@@ -29,6 +29,10 @@ Apply the user's global workflow preferences on every task in every repository. 
 
 - Before using or referring to any `origin/*` reference, run `git fetch --prune`.
 
+### Capture learnings in skills
+
+- When a new reusable rule or lesson is learned, add it to the appropriate skill immediately.
+
 ## Usage notes
 
 - If a PR already exists but includes multiple changes, offer to split it by creating a new branch and cherry-picking the intended commit(s).
