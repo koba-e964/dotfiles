@@ -1,0 +1,4 @@
+interface:
+  display_name: "Commit"
+  short_description: "Create comprehensive conventional commit messages"
+  default_prompt: "Use this skill when writing a commit message with chore/feat/fix and a clear, comprehensive summary."
