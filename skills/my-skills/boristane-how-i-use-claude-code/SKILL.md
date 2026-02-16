@@ -21,6 +21,12 @@ The agent must NEVER skip phases or implement early.
 
 The plan document is the source of truth for implementation.
 
+Approval gate between phases:
+
+- Generate `research.md` first, then pause for explicit user approval.
+- Do not generate `plan.md` until the user approves `research.md`.
+- After generating `plan.md`, pause again and wait for explicit plan approval before implementation.
+
 ---
 
 # Phase 0: Activation Criteria
@@ -51,6 +57,12 @@ When in doubt, activate.
 ## Objective
 
 Build deep understanding of the existing system BEFORE proposing changes.
+
+Research depth requirements:
+
+- Develop deep understanding of the relevant system behavior, not just surface structure.
+- Understand the intricacies (edge cases, coupling points, implicit assumptions, operational constraints).
+- Go through everything related to the requested change before moving to planning.
 
 ## Allowed actions
 
@@ -96,6 +108,10 @@ Path rule:
 
 Focus on understanding current reality, not proposing changes.
 
+## Exit condition for Phase 1
+
+- Pause after writing `research.md` and request explicit user approval to proceed to Phase 2.
+
 ---
 
 # Phase 2: Planning Phase
@@ -109,6 +125,10 @@ Design the implementation fully before writing any code.
 Write:
 
 `<notes_prefix>/plan.md`
+
+## Entry condition for Phase 2
+
+- Allowed only after explicit user approval of `research.md`.
 
 ## plan.md must include
 
