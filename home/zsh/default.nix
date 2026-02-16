@@ -118,7 +118,9 @@ export PATH=$PATH:/usr/local/share/dotnet
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 
 # pyvenv
-source $HOME/local_python/bin/activate
+if [ -f "$HOME/local_python/bin/activate" ]; then
+  source $HOME/local_python/bin/activate
+fi
 export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 
 # binaryen

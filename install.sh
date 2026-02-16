@@ -20,6 +20,10 @@ if ! command -v rustup >/dev/null; then
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 fi
 
+if [ "$(uname)" == "Darwin" ]; then
+    ./install-local-python.sh
+fi
+
 ./git/install.sh
 
 # https://nix.dev/manual/nix/2.33/installation/installing-binary

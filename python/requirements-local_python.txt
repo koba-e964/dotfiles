@@ -1,0 +1,12 @@
+# Locked for macOS arm64 (Python 3.12) with sha384 hashes.
+# Update hashes together with version bumps.
+pip==26.0.1 \
+    --hash=sha384:e3e07a838b1dbfa47c70f377c7ead31b5bd0f741e57beeec554f9480f80b30f66396969d1a2ff2e1977ca7f213550a8e
+podman-compose==1.5.0 \
+    --hash=sha384:7b139e12a75cd9dc34a946baad54e4a17525d3788f01edbe24671e66dd2f0a4cd4e612527d1d0f9e19471ca68bf9cd18
+python-dotenv==1.2.1 \
+    --hash=sha384:a2fb4f09f16c89a285195d0eaee6a919daa51675c1b67714a2f9a1e8f4e80dd88070edfae9682ef50a9a51bbb5898255
+pyyaml==6.0.3 \
+    --hash=sha384:4e08139ed14283633d95d03a054abcdc9acf092a7ecb7f390b50936c32731e33abc07a5e172e927ec23049f0438e266e
+ruff==0.15.1 \
+    --hash=sha384:c8386b4d78b79fb7efc3939df499211cc1af54ec83fac037c8895257126ee9d6b89adae9e58a67b5719ae82591e222a8
