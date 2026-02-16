@@ -15,7 +15,7 @@ Add or update `.pre-commit-config.yaml` for Go projects using repo-based hooks p
 2. Select hook IDs:
    - `go-fmt` (add `args: ["-w"]` if auto-fixing is desired)
    - `go-staticcheck-repo-mod` for `staticcheck ./...` per module
-3. Lock versions by setting `rev` to a commit SHA and add an inline comment with the tag version.
+3. Lock versions by setting `rev` to a commit SHA and add an inline `# frozen: vX.Y.Z` tag comment.
 4. Keep README setup minimal:
    - `pre-commit install`
    - `pre-commit run --all-files`
@@ -31,7 +31,7 @@ Add or update `.pre-commit-config.yaml` for Go projects using repo-based hooks p
 ```yaml
 repos:
   - repo: https://github.com/TekWizely/pre-commit-golang
-    rev: <commit-sha> # vX.Y.Z
+    rev: <commit-sha>  # frozen: vX.Y.Z
     hooks:
       - id: go-fmt
         args: ["-w"]
