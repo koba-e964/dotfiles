@@ -1,6 +1,6 @@
 ---
 name: commit
-description: Write comprehensive conventional commit messages using only chore, feat, or fix. Use when the user asks to create or improve commit messages and needs clear scope, intent, and impact in the commit subject and body.
+description: Write comprehensive Conventional Commit messages using standard commit types. Use when the user asks to create or improve commit messages and needs clear scope, intent, and impact in the commit subject and body.
 ---
 
 # Commit
@@ -8,14 +8,13 @@ description: Write comprehensive conventional commit messages using only chore, 
 ## Overview
 
 Produce a conventional commit message with a precise subject and informative body.
-Allow only `chore`, `feat`, and `fix` as commit types.
+Follow ordinary Conventional Commits conventions without restricting commit types.
 
 ## Commit Type Rules
 
-- `feat`: Use for user-visible functionality or new capabilities.
-- `fix`: Use for bug fixes and behavior corrections.
-- `chore`: Use for maintenance, tooling, refactors without behavior changes, docs/process updates.
-- If multiple types seem valid, choose the one that best reflects user-facing impact. Prefer `feat`/`fix` over `chore` when behavior changes.
+- Use standard Conventional Commits types based on the change intent.
+- Common types include `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `build`, `ci`, and `chore`.
+- If multiple types seem valid, choose the one that best reflects user-facing impact.
 
 ## Message Format
 
