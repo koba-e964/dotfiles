@@ -69,7 +69,17 @@ Build deep understanding of the existing system BEFORE proposing changes.
 
 Write:
 
-ai/research.md
+`<notes_prefix>/research.md`
+
+Default `notes_prefix`:
+
+- `codex-notes/<task-slug>`
+
+Path rule:
+
+- Avoid generic prefixes like `ai/` because they can collide with existing repo conventions.
+- Prefer task-scoped directories that include a short task description (example: `codex-notes/local-python-migration/research.md`).
+- If the user specifies a prefix, follow it.
 
 ## research.md must include
 
@@ -98,7 +108,7 @@ Design the implementation fully before writing any code.
 
 Write:
 
-ai/plan.md
+`<notes_prefix>/plan.md`
 
 ## plan.md must include
 

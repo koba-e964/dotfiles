@@ -32,6 +32,8 @@ Apply the user's global workflow preferences on every task in every repository. 
 ### Capture learnings in skills
 
 - When a new reusable rule or lesson is learned, add it to the appropriate skill immediately.
+- If the user objects to the working method, treat it as a global workflow rule by default and update the appropriate skill in the same turn.
+- Only treat such feedback as task-local when the user explicitly scopes it (e.g., "for this task", "in this task only").
 
 ## Usage notes
 
