@@ -1,5 +1,4 @@
 Manage settings in VSCode with nix
-move git management to home.nix
 Move initContent's content to individual configs (67 lines)
 Use brew-nix
 Use Cloudflare Tunnel

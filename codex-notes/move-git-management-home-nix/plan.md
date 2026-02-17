@@ -70,8 +70,8 @@ This follows the approved rule: commonality is >= 90%, so consolidate.
 - None blocking for implementation under approved scope.
 
 ## Implementation Checklist
-- [ ] Add full shared git settings to `common/git/default.nix`
-- [ ] Update `home/home.nix` to import `../common/git`
-- [ ] Update `ec2/ec2.nix` to import shared git module
-- [ ] Remove `move git management to home.nix` from `todo.txt`
-- [ ] Review final diff for scope correctness
+- [x] Add full shared git settings to `common/git/default.nix`
+- [x] Update `home/home.nix` to import `../common/git`
+- [x] Update `ec2/ec2.nix` to import shared git module
+- [x] Remove `move git management to home.nix` from `todo.txt`
+- [x] Review final diff for scope correctness

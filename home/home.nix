@@ -15,7 +15,7 @@
 
     programs = {
         zsh = import ./zsh;
-        git = import ./git;
+        git = import ../common/git;
         zoxide = {
             enable = true;
         };
