@@ -4,4 +4,3 @@ Move initContent's content to individual configs (67 lines)
 Use brew-nix
 Use Cloudflare Tunnel
 Use alacritty
-add abbreviations with cursor positions

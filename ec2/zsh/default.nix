@@ -1,5 +1,8 @@
 {
     enable = true;
+    localVariables = {
+        ABBR_SET_EXPANSION_CURSOR = 1;
+    };
     zsh-abbr = {
         enable = true;
         abbreviations = {
@@ -29,11 +32,13 @@
             gt = "git tag";
             gta = "git tag --annotate --sign";
             gdesc = "git describe --tags";
+            gca = "git commit --amend -m \"%\"";
+            gfix = "git commit --fixup %";
             gsw = "git switch";
             gst = "git status";
             gbr = "git branch";
             gcsh = "git clone --depth=1";
-            # gprev = "git switch --detach HEAD~; %1; git switch main";
+            gprev = "git switch --detach HEAD~; %; git switch main";
 
             # go
 
