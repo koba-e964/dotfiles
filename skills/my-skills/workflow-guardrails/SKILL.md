@@ -35,6 +35,12 @@ Apply the user's global workflow preferences on every task in every repository. 
 - If the user objects to the working method, treat it as a global workflow rule by default and update the appropriate skill in the same turn.
 - Only treat such feedback as task-local when the user explicitly scopes it (e.g., "for this task", "in this task only").
 
+### Consolidation threshold
+
+- When deciding whether to unify similar configurations/modules, estimate shared content first.
+- If commonality is 90% or higher, consolidate into a shared definition.
+- If commonality is below 90%, keep separate definitions and avoid forced consolidation.
+
 ## Usage notes
 
 - If a PR already exists but includes multiple changes, offer to split it by creating a new branch and cherry-picking the intended commit(s).
