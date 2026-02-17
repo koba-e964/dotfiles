@@ -68,6 +68,24 @@
         ];
     };
 
+    envExtra = ''
+# Ensure nix is available across common install layouts.
+if ! command -v nix >/dev/null 2>&1; then
+  for nix_profile_script in \
+    /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh \
+    /nix/var/nix/profiles/default/etc/profile.d/nix.sh \
+    "$HOME/.nix-profile/etc/profile.d/nix.sh" \
+    /etc/profile.d/nix.sh
+  do
+    if [ -r "$nix_profile_script" ]; then
+      source "$nix_profile_script"
+      command -v nix >/dev/null 2>&1 && break
+    fi
+  done
+  unset nix_profile_script
+fi
+    '';
+
     initContent = ''
 zshaddhistory() {
   emulate -L zsh

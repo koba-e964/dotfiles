@@ -3,4 +3,3 @@ Move initContent's content to individual configs (67 lines)
 Use brew-nix
 Use Cloudflare Tunnel
 Use alacritty
-source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh safely to make nix available
