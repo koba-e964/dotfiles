@@ -67,3 +67,8 @@ shortcut = "ゆうこうぐらふ"
 [[words]]
 phrase = "強連結成分分解"
 shortcut = "きょうれんけつせいぶんぶんかい"
+
+# 統計
+[[words]]
+phrase = "交絡因子"
+shortcut = "こうらくいんし"
