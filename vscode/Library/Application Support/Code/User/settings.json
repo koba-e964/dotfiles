@@ -16,6 +16,10 @@
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
+  "[python]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "charliermarsh.ruff",
+  },
   "hexeditor.dataInspector.autoReveal": false,
   "hexeditor.showOpenFileButton": true,
   "hexeditor.inspectorType": "sidebar",
