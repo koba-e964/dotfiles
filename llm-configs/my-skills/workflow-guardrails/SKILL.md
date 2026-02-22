@@ -41,6 +41,12 @@ Apply the user's global workflow preferences on every task in every repository. 
 - If commonality is 90% or higher, consolidate into a shared definition.
 - If commonality is below 90%, keep separate definitions and avoid forced consolidation.
 
+### Prefer explicit CLI options
+
+- Prioritize portability first: use options that work reliably across commonly encountered tool versions and POSIX-conformant environments.
+- When portability is not at risk and both are equivalent, prefer explicit long-form options over shorthand aliases.
+- Example: prefer `--requirement` instead of `-r` only when the target tool/version supports it consistently.
+
 ## Usage notes
 
 - If a PR already exists but includes multiple changes, offer to split it by creating a new branch and cherry-picking the intended commit(s).

@@ -14,5 +14,6 @@ if [ ! -x "${VENV_DIR}/bin/python" ]; then
     python3 -m venv "${VENV_DIR}"
 fi
 
+"${VENV_DIR}/bin/python" -m ensurepip --upgrade
 "${VENV_DIR}/bin/python" -m pip install --upgrade "pip==26.0.1"
-"${VENV_DIR}/bin/python" -m pip install --require-hashes -r "${REQ_FILE}"
+"${VENV_DIR}/bin/python" -m pip install --require-hashes --requirement "${REQ_FILE}"
