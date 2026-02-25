@@ -47,6 +47,21 @@ Apply the user's global workflow preferences on every task in every repository. 
 - When portability is not at risk and both are equivalent, prefer explicit long-form options over shorthand aliases.
 - Example: prefer `--requirement` instead of `-r` only when the target tool/version supports it consistently.
 
+### Path hygiene for outputs
+
+- In repo notes, plans, summaries, and proposed commit content, prefer workspace-relative paths over machine-specific absolute paths.
+- Remove local prefixes like `/Users/<name>/...` unless absolute paths are explicitly requested for tooling or reproducibility.
+
+### Voice-typed input handling
+
+- Assume minor typos may come from voice input and prioritize intended meaning over literal spelling.
+- Do not block progress on typo cleanup unless meaning is ambiguous or technically unsafe.
+
+### Show diffs after edits
+
+- When running in Codex App and making file changes, include a concise diff in the response by default.
+- If no files changed, explicitly state that no diff exists.
+
 ## Usage notes
 
 - If a PR already exists but includes multiple changes, offer to split it by creating a new branch and cherry-picking the intended commit(s).

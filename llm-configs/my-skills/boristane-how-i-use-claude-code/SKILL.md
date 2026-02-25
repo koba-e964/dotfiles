@@ -91,6 +91,7 @@ Path rule:
 
 - Avoid generic prefixes like `ai/` because they can collide with existing repo conventions.
 - Prefer task-scoped directories that include a short task description (example: `codex-notes/local-python-migration/research.md`).
+- Use workspace-relative file paths inside `research.md` and `plan.md` by default; avoid machine-specific absolute paths unless explicitly requested.
 - If the user specifies a prefix, follow it.
 
 ## research.md must include
