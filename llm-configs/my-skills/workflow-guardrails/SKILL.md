@@ -29,6 +29,12 @@ Apply the user's global workflow preferences on every task in every repository. 
 
 - Before using or referring to any `origin/*` reference, run `git fetch --prune`.
 
+### Branch from origin/HEAD for issue work
+
+- When the user asks to fix or resolve a GitHub issue, create a new branch before making any file edits.
+- The new branch must start from `origin/HEAD` (after fetch/prune), not from the current local branch.
+- Use the `codex/` prefix for the branch name and keep the branch scoped to that single issue.
+
 ### Capture learnings in skills
 
 - When a new reusable rule or lesson is learned, add it to the appropriate skill immediately.
