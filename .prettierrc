@@ -1,0 +1,16 @@
+{
+  "trailingComma": "all",
+  "overrides": [
+    {
+      "files": [
+        "vscode/Library/Application Support/Code/User/settings.json",
+        ".eslintrc",
+        ".tsconfig",
+        ".prettierrc",
+      ],
+      "options": {
+        "parser": "jsonc",
+      },
+    },
+  ],
+}
