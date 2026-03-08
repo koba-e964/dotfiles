@@ -26,5 +26,6 @@
         stow
         pre-commit
         podman
+        opam
     ];
 }
