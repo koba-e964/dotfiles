@@ -1,0 +1,4 @@
+interface:
+  display_name: "Daily Ops Spec Driven"
+  short_description: "Run recurring operations via plan/spec/todo/knowledge"
+  default_prompt: "Use this skill to semi-automate recurring non-coding operations with explicit human approval gates and reusable operational knowledge."
