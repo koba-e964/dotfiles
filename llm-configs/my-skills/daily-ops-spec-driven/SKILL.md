@@ -42,6 +42,16 @@ Follow these steps in order.
 - Business-specific interpretation rules
 - Re-run procedure for next cycle
 
+## File location rules
+
+- Keep `plan.md`, `spec.md`, and `knowledge.md` under the task `docs/` directory.
+- Keep `todo.md` under a date directory (`YYYYMMDD/`) for each execution.
+- Example:
+  - `work/<task>/docs/plan.md`
+  - `work/<task>/docs/spec.md`
+  - `work/<task>/docs/knowledge.md`
+  - `work/<task>/YYYYMMDD/todo.md`
+
 ## Output rules
 
 - Prefer copy-paste ready deliverables (report text, application text, response draft).
