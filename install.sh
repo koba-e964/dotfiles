@@ -38,7 +38,6 @@ nix run .#home-manager --extra-experimental-features "nix-command flakes" -- swi
 # シンボリックリンクを作成
 stow --target="${HOME}" --verbose vscode cargo nix
 stow --target="${HOME}" --verbose --no-folding llm-configs
-ln -sf ${DIR}/git/.gitconfig ~/.gitconfig
 
 # VSCode extensions
 # https://note.com/teitei_tk/n/n7204cb8d97c5
