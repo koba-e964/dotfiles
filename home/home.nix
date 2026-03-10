@@ -27,5 +27,6 @@
         pre-commit
         podman
         opam
+        codeberg-cli
     ];
 }
