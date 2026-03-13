@@ -65,10 +65,6 @@ Follow these steps in order.
 - If a requirement is ambiguous, list assumptions explicitly before execution.
 - Prioritize automating the heaviest repeated steps first.
 
-## Migration note
-
-- Legacy mapping: old `plan.md` is now `brief.md`; old `spec.md` is now `plan.md`.
-
 ## Practical completion checklist
 
 Do not create `brief.md` unless the user explicitly asks. Treat it as user-owned by default.
