@@ -1,6 +1,6 @@
 ---
 name: daily-ops-spec-driven
-description: Drive recurring non-coding work with a semi-automated plan/spec/todo/knowledge workflow, emphasizing human approval gates and reusable operational knowledge.
+description: Drive recurring non-coding work with a semi-automated brief/plan/todo/knowledge workflow, emphasizing human approval gates and reusable operational knowledge.
 ---
 
 # Daily Ops Spec Driven
@@ -22,11 +22,11 @@ The goal is not full automation. The goal is high-leverage semi-automation with 
 
 Follow these steps in order.
 
-1. Use user-authored `plan.md` as the source of truth
-- Read background, goals, constraints, and approval points from `plan.md`
-- If details are missing, ask concise follow-up questions instead of creating `plan.md`
+1. Use user-authored `brief.md` as the source of truth
+- Read background, goals, constraints, and approval points from `brief.md`
+- If details are missing, ask concise follow-up questions instead of creating `brief.md`
 
-2. Define contract in `spec.md`
+2. Define contract in `plan.md`
 - Required inputs and validation rules
 - Output format and acceptance criteria
 - Edge cases and exception handling
@@ -44,11 +44,11 @@ Follow these steps in order.
 
 ## File location rules
 
-- Keep `plan.md`, `spec.md`, and `knowledge.md` under the task `docs/` directory.
+- Keep `brief.md`, `plan.md`, and `knowledge.md` under the task `docs/` directory.
 - Keep `todo.md` under a date directory (`YYYYMMDD/`) for each execution.
 - Example:
+  - `work/<task>/docs/brief.md`
   - `work/<task>/docs/plan.md`
-  - `work/<task>/docs/spec.md`
   - `work/<task>/docs/knowledge.md`
   - `work/<task>/YYYYMMDD/todo.md`
 
@@ -65,12 +65,16 @@ Follow these steps in order.
 - If a requirement is ambiguous, list assumptions explicitly before execution.
 - Prioritize automating the heaviest repeated steps first.
 
+## Migration note
+
+- Legacy mapping: old `plan.md` is now `brief.md`; old `spec.md` is now `plan.md`.
+
 ## Practical completion checklist
 
-Do not create `plan.md` unless the user explicitly asks. Treat it as user-owned by default.
+Do not create `brief.md` unless the user explicitly asks. Treat it as user-owned by default.
 
-- `plan.md` contains context and approval points.
-- `spec.md` defines input/output contract and edge cases.
+- `brief.md` contains context and approval points.
+- `plan.md` defines input/output contract and edge cases.
 - `todo.md` reflects execution status.
 - `knowledge.md` captures reusable lessons.
 - Final deliverable is ready for human review and submission.
