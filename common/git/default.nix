@@ -26,8 +26,8 @@
     };
     includes = [
         {
-            # Put machine-local overrides in .gitconfig.local
-            path = ".gitconfig.local";
+            # Put machine-local overrides in ~/.gitconfig.local
+            path = "~/.gitconfig.local";
         }
     ];
 }
