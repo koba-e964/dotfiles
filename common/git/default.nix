@@ -23,9 +23,11 @@
                 process = "git-lfs filter-process";
             };
         };
-        include = {
+    };
+    includes = [
+        {
             # Put machine-local overrides in .gitconfig.local
             path = ".gitconfig.local";
-        };
-    };
+        }
+    ];
 }
