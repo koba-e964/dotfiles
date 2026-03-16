@@ -58,11 +58,8 @@
 
     history = {
         ignorePatterns = [
-            "ls#( *)#"
-            "cat#( *)#"
-            "df#( *)#"
-            "du#( *)#"
-            "cd *"
+            "ls -l"
+            "ls -la"
             "git log"
             "git status"
         ];
