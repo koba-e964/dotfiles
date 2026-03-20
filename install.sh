@@ -37,6 +37,7 @@ nix run .#home-manager --extra-experimental-features "nix-command flakes" -- swi
 
 # シンボリックリンクを作成
 stow --target="${HOME}" --verbose vscode cargo nix
+stow --target="${HOME}" --verbose zed
 stow --target="${HOME}" --verbose --no-folding llm-configs
 
 # VSCode extensions
