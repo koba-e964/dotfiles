@@ -41,6 +41,8 @@ Follow these steps in order.
 - Pitfalls and resolutions
 - Business-specific interpretation rules
 - Re-run procedure for next cycle
+- On every new user instruction, correction, or decision, append an entry to `knowledge.md` in the same turn
+- If no entry is added, explicitly state why in the response
 
 ## File location rules
 
