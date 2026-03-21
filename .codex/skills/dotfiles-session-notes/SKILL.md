@@ -26,9 +26,3 @@ Capture session-specific behavior and preferences for this dotfiles repo so chan
 - `nix run .#home-manager` on EC2 requires `apps.x86_64-linux.home-manager` (and/or packages) to be exported; add `packages.${ec2System}.home-manager` and `apps.${ec2System}.home-manager` alongside the Darwin outputs in `flake.nix`.
 - `ec2/ec2.nix` installs `codex`, `git`, `ripgrep`, `termux`, plus existing tools.
 - `nix flake check` may fail without access to the Nix cache; rerun with escalated permissions if the cache DB can't be opened.
-
-## Stow First-Time Adoption Rule
-
-- When starting to manage an already-existing local file with `stow`, run `stow --adopt <package>` once to migrate current local content into the repo package.
-- Do not keep `--adopt` in recurring install scripts (`install.sh`); regular runs should use plain `stow` so managed files are not re-adopted unexpectedly.
-- Example for Zed settings first-time migration: `stow --target="$HOME" --verbose --adopt zed`, then keep `install.sh` as `stow --target="${HOME}" --verbose zed`.
