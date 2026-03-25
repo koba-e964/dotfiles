@@ -1,0 +1,4 @@
+interface:
+  display_name: "McKinsey 7S Analysis"
+  short_description: "Analyze organizations with the McKinsey 7S framework"
+  default_prompt: "Use $mckinsey-7s-analysis to assess an organization across Shared Values, Strategy, Skills, Structure, Systems, Staff, and Style."
