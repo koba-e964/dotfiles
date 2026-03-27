@@ -46,13 +46,15 @@ Follow these steps in order.
 
 ## File location rules
 
-- Keep `brief.md`, `plan.md`, and `knowledge.md` under the task `docs/` directory.
-- Keep `todo.md` under a date directory (`YYYYMMDD/`) for each execution.
-- Example:
-  - `work/<task>/docs/brief.md`
-  - `work/<task>/docs/plan.md`
-  - `work/<task>/docs/knowledge.md`
-  - `work/<task>/YYYYMMDD/todo.md`
+- Follow the repository's existing path conventions when they are explicitly defined.
+- Default to keeping `brief.md`, `plan.md`, and `knowledge.md` under `<root>/docs/`.
+- Default to keeping `todo.md` under `<root>/YYYYMMDD/` for each execution.
+- Use task subdirectories such as `work/<task>/...` only when the target repository explicitly adopts that structure.
+- Default example:
+  - `<root>/docs/brief.md`
+  - `<root>/docs/plan.md`
+  - `<root>/docs/knowledge.md`
+  - `<root>/YYYYMMDD/todo.md`
 
 ## Output rules
 
