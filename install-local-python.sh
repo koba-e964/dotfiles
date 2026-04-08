@@ -3,18 +3,18 @@ set -eu
 
 SCRIPT_DIR=$(cd "$(dirname "$0")" && pwd)
 VENV_DIR="${HOME}/local_python"
-REQ_FILE="${SCRIPT_DIR}/python/requirements-local_python.txt"
 REQUIRED_PYTHON="${REQUIRED_PYTHON:-$(cat "${SCRIPT_DIR}/.python-version")}"
 PYTHON_BIN="${PYTHON_BIN:-python${REQUIRED_PYTHON}}"
-
-if [ ! -f "${REQ_FILE}" ]; then
-    echo "requirements file not found: ${REQ_FILE}" >&2
-    exit 1
-fi
 
 if ! command -v "${PYTHON_BIN}" >/dev/null 2>&1; then
     echo "required interpreter not found: ${PYTHON_BIN}" >&2
     echo "install Python ${REQUIRED_PYTHON} or set PYTHON_BIN to a compatible interpreter" >&2
+    exit 1
+fi
+
+if ! command -v uv >/dev/null 2>&1; then
+    echo "uv not found in PATH" >&2
+    echo "install uv before running ${0##*/}" >&2
     exit 1
 fi
 
@@ -33,9 +33,14 @@ if [ -x "${VENV_DIR}/bin/python" ]; then
 fi
 
 if [ ! -x "${VENV_DIR}/bin/python" ]; then
-    "${PYTHON_BIN}" -m venv "${VENV_DIR}"
+    uv venv --python "${PYTHON_BIN}" "${VENV_DIR}"
 fi
 
-"${VENV_DIR}/bin/python" -m ensurepip --upgrade
-"${VENV_DIR}/bin/python" -m pip install --upgrade "pip==26.0.1"
-"${VENV_DIR}/bin/python" -m pip install --require-hashes --requirement "${REQ_FILE}"
+VIRTUAL_ENV="${VENV_DIR}" uv sync \
+    --active \
+    --project "${SCRIPT_DIR}" \
+    --locked \
+    --only-group local \
+    --no-default-groups \
+    --no-dev \
+    --no-install-project
