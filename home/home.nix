@@ -28,5 +28,6 @@
         podman
         opam
         codeberg-cli
+        ruff
     ];
 }
