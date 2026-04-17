@@ -22,6 +22,7 @@
             g = "git";
             gco = "git commit";
             gnew = "git fetch --prune && git switch --detach origin/HEAD";
+            gupd = "git fetch --prune && git rebase --onto origin/HEAD --autostash origin/HEAD";
             ga = "git add";
             gaa = "git add --all";
             gd = "git diff";
@@ -32,7 +33,7 @@
             gt = "git tag";
             gta = "git tag --annotate --sign";
             gdesc = "git describe --tags";
-            gca = "git commit --amend -m \"%\"";
+            gca = "git commit --amend";
             gfix = "git commit --fixup %";
             gsw = "git switch";
             gst = "git status";
