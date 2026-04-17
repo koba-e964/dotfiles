@@ -1,1 +1,2 @@
 *.plist
+__pycache__/
