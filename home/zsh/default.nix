@@ -113,6 +113,13 @@ fpath=(~/.zsh $fpath)
 zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
 autoload -Uz compinit && compinit
 
+gwork() {
+  local worktree_path="''${1}"
+  local branch="''${worktree_path:t}"
+  cd "$(git rev-parse --show-toplevel)" &&
+    git worktree add --no-track -b "''${branch}" "''${worktree_path}" origin/HEAD
+}
+
 # プロンプトのオプション表示設定
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWUNTRACKEDFILES=true
