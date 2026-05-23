@@ -84,4 +84,5 @@
   "breadcrumbs.enabled": false,
   "editor.codeLens": false,
   "workbench.activityBar.location": "hidden",
+  "workbench.secondarySideBar.defaultVisibility": "hidden",
 }
