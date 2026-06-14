@@ -1,0 +1,4 @@
+interface:
+  display_name: "Shogi Position Analysis"
+  short_description: "Analyze shogi positions and write readable notes"
+  default_prompt: "Use this skill when converting KIF/SFEN positions, running a shogi engine, and summarizing best moves or tactical lines in Markdown."
