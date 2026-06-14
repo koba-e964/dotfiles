@@ -51,6 +51,8 @@ The SFEN notation rules are based on the reference article: https://touch-sp.hat
 
 ## Engine Analysis
 
+For USI engines, use the `shogi-usi-engine` skill to launch the engine, send `position`/`go`, and collect `info`/`bestmove` output.
+
 Use the engine settings requested by the user. If the user does not specify settings, choose a conservative short analysis first, then deepen only when the first result is ambiguous.
 
 Capture:
@@ -60,6 +62,10 @@ Capture:
 - Principal variation.
 - Alternative candidate moves when available.
 - Whether the result is stable across deeper search, if multiple depths were run.
+
+When comparing plausible alternatives, ask for MultiPV output via `shogi-usi-engine` and summarize the candidate move, score, and PV for each line. This is necessary when the explanation depends on why one natural move is better than another.
+
+When the important explanation is not visible at the root, advance the position with USI `moves` and re-analyze the resulting position. Look for clearer downstream indicators such as material gain, forced recapture, mate, no-mate, or a king escape. Use this to turn "engine says so" into a concrete reason.
 
 For tactical positions, inspect opponent replies. A single PV is often not enough; ask the engine or user-provided tool for likely defenses when the human explanation needs branches.
 

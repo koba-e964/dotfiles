@@ -1,0 +1,4 @@
+interface:
+  display_name: "Shogi USI Engine"
+  short_description: "Run local USI shogi engines"
+  default_prompt: "Use this skill when launching a local shogi engine over USI, sending position/go commands, and interpreting bestmove or info output."
