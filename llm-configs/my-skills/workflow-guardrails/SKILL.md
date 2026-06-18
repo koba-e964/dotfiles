@@ -25,6 +25,12 @@ Apply the user's global workflow preferences on every task in every repository. 
 - If a task suggests rebasing (e.g., "update branch", "sync with main"), ask whether to rebase or merge.
 - If asked to cherry-pick, do not rebase unless explicitly instructed.
 
+### Tagged commits are immutable
+
+- Never amend, rebase, squash, reset away, or otherwise rewrite a commit that is already pointed to by any tag.
+- Before amending or rewriting commits, check whether the target commit is tagged.
+- Do not move, delete, or recreate existing tags unless the user explicitly asks to modify tags after the risk is stated.
+
 ### Always refresh origin refs
 
 - Before using or referring to any `origin/*` reference, run `git fetch --prune`.
