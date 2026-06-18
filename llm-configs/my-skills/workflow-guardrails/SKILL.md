@@ -27,8 +27,9 @@ Apply the user's global workflow preferences on every task in every repository. 
 
 ### Tagged commits are immutable
 
-- Never amend, rebase, squash, reset away, or otherwise rewrite a commit that is already pointed to by any tag.
-- Before amending or rewriting commits, check whether the target commit is tagged.
+- Never amend, rebase, squash, reset away, or otherwise rewrite a commit that is already pointed to by any tag, or any ancestor of a tagged commit.
+- Treat all commits reachable from any tag as immutable because rewriting an ancestor changes the tagged commit's hash.
+- Before amending or rewriting commits, check whether the target commits are tagged or reachable from any tag.
 - Do not move, delete, or recreate existing tags unless the user explicitly asks to modify tags after the risk is stated.
 
 ### Always refresh origin refs
