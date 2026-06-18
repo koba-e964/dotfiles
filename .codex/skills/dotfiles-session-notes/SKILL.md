@@ -12,6 +12,7 @@ Capture session-specific behavior and preferences for this dotfiles repo so chan
 ## Date Tags
 
 - Use one lightweight date tag per workday, formatted `YYYY.MM.DD`, pointing at the final commit from that day's batch.
+- Interpret workdays and calendar-day boundaries in the `Asia/Tokyo` timezone.
 - Do not create a date tag on the same calendar day as the commits it would tag.
 - Create a date tag only after the next calendar day has started.
 
