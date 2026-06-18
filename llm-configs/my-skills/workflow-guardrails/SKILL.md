@@ -53,6 +53,12 @@ Apply the user's global workflow preferences on every task in every repository. 
 - When portability is not at risk and both are equivalent, prefer explicit long-form options over shorthand aliases.
 - Example: prefer `--requirement` instead of `-r` only when the target tool/version supports it consistently.
 
+### Dependency version hygiene
+
+- Prefer warning-free dependency version requirements.
+- Use the latest compatible dependency versions by default. If a dependency is intentionally not latest, add a concise comment or note justifying the older version.
+- Prefer minimal dependency feature sets to reduce transitive dependencies.
+
 ### Path hygiene for outputs
 
 - In repo notes, plans, summaries, and proposed commit content, prefer workspace-relative paths over machine-specific absolute paths.
