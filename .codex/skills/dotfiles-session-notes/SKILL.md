@@ -1,6 +1,6 @@
 ---
 name: dotfiles-session-notes
-description: Repo-specific operational notes for /Users/kobas-mac/srcview/dotfiles. Use when working on zsh history ignorePatterns behavior, or when applying the user preference to beep on completion.
+description: Repo-specific operational notes for /Users/kobas-mac/srcview/dotfiles. Use when working on this repo's date tag workflow, zsh history ignorePatterns behavior, or the user preference to beep on completion.
 ---
 
 # Dotfiles Session Notes
@@ -8,6 +8,12 @@ description: Repo-specific operational notes for /Users/kobas-mac/srcview/dotfil
 ## Overview
 
 Capture session-specific behavior and preferences for this dotfiles repo so changes remain consistent and user expectations are met.
+
+## Date Tags
+
+- Use one lightweight date tag per workday, formatted `YYYY.MM.DD`, pointing at the final commit from that day's batch.
+- Do not create a date tag on the same calendar day as the commits it would tag.
+- Create a date tag only after the next calendar day has started.
 
 ## Zsh History Ignore Patterns
 
