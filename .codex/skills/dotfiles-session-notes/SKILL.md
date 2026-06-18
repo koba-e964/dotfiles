@@ -2,7 +2,9 @@
 name: dotfiles-session-notes
 description: Repo-specific operational notes for /Users/kobas-mac/srcview/dotfiles. Use when working on this repo's date tag workflow, zsh history ignorePatterns behavior, or the user preference to beep on completion.
 allowed-tools:
-  - AskUserQuestion
+  - Bash(git log:*)
+  - Bash(git tag:*)
+  - Bash(git show-ref:*)
 ---
 
 # Dotfiles Session Notes
