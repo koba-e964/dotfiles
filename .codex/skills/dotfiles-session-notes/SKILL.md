@@ -1,6 +1,8 @@
 ---
 name: dotfiles-session-notes
 description: Repo-specific operational notes for /Users/kobas-mac/srcview/dotfiles. Use when working on this repo's date tag workflow, zsh history ignorePatterns behavior, or the user preference to beep on completion.
+allowed-tools:
+  - AskUserQuestion
 ---
 
 # Dotfiles Session Notes
@@ -15,6 +17,7 @@ Capture session-specific behavior and preferences for this dotfiles repo so chan
 - Interpret workdays and calendar-day boundaries in the `Asia/Tokyo` timezone.
 - Do not create a date tag on the same calendar day as the commits it would tag.
 - Create a date tag only after the next calendar day has started.
+- Before creating tags, list the exact tag names and commit hashes, then ask the user for confirmation.
 
 ## Zsh History Ignore Patterns
 
