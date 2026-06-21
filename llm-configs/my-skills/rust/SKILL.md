@@ -22,6 +22,11 @@ description: Apply Rust project conventions when editing Cargo.toml, Rust depend
   - Enable only the features the code actually needs.
   - If default features are kept, add a concise comment or note explaining why.
 
+## API design
+
+- Prefer concrete borrowed string parameters like `&str` over polymorphic `impl Into<String>`.
+- Use `impl Into<String>` only when there is a concrete ergonomic or ownership reason that justifies monomorphization cost.
+
 ## Validation
 
 - Use `pre-commit` for Rust repositories.
