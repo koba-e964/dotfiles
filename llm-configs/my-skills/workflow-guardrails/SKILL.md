@@ -47,6 +47,9 @@ Apply the user's global workflow preferences on every task in every repository. 
 - When a new reusable rule or lesson is learned, add it to the appropriate skill immediately.
 - If the user objects to the working method, treat it as a global workflow rule by default and update the appropriate skill in the same turn.
 - Only treat such feedback as task-local when the user explicitly scopes it (e.g., "for this task", "in this task only").
+- Prefer updating a skill over a repository `AGENTS.md` file when the lesson should apply across repositories.
+- After recording a lesson, start a subagent outside the current repository to verify that the new instruction is discoverable and understood.
+- Apply this same capture-and-verify process to changes about the learning-capture process itself.
 
 ### Consolidation threshold
 
