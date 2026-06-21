@@ -24,10 +24,11 @@ description: Apply Rust project conventions when editing Cargo.toml, Rust depend
 
 ## Validation
 
-- Use `pre-commit` when the repository has `.pre-commit-config.yaml`.
-- Prefer adding fast Rust checks, especially `cargo fmt --check`, to pre-commit so they run before commits.
+- Use `pre-commit` for Rust repositories.
+- Add Rust pre-commit hooks for:
+  - `cargo fmt --check`
+  - `cargo clippy --all-targets --all-features -- -D warnings`
 - After dependency or manifest changes, run:
-  - `pre-commit run --all-files`
   - `cargo fmt --check`
   - `cargo test`
   - `cargo clippy --all-targets --all-features -- -D warnings`
