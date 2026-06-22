@@ -7,3 +7,8 @@
 - If a repository does not have `.pre-commit-config.yaml`, add a focused one unless the user explicitly asks not to.
 - When adding pre-commit hooks, keep them fast and focused.
 - Pin third-party hook repositories to commit hashes, with a tag comment when known.
+
+## Worktrees And Agent Instructions
+
+- For a repository named `XXX`, create worktrees under `../XXX-worktrees/WORKTREE-NAME/`.
+- `AGENTS.md` must be present as a symlink created by `stow`.

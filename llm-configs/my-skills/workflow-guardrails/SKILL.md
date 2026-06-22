@@ -36,6 +36,11 @@ Apply the user's global workflow preferences on every task in every repository. 
 
 - Before using or referring to any `origin/*` reference, run `git fetch --prune`.
 
+### Worktree locations
+
+- For a repository named `XXX`, create worktrees under `../XXX-worktrees/WORKTREE-NAME/`.
+- Do not create sibling worktrees directly beside the main checkout unless the user explicitly requests a different location.
+
 ### Branch from origin/HEAD for issue work
 
 - When the user asks to fix or resolve a GitHub issue, create a new branch before making any file edits.
