@@ -89,6 +89,16 @@ Apply the user's global workflow preferences on every task in every repository. 
 - When running in Codex App and making file changes, include a concise diff in the response by default.
 - If no files changed, explicitly state that no diff exists.
 
+### Run validators after edits
+
+- After file changes are complete, run every validator in `.codex/agents/` and `~/.codex/agents/` whose documentation explicitly says it applies to the changed files or task domain.
+- Evaluate validators against the current patch, not the whole repository, and run all that apply.
+- Run validators after the planned edits are complete, since validator agents can be expensive.
+- If an applicable validator cannot be run because the required agent or tool is unavailable, or because the validator cannot run successfully in this environment, continue without it and note that limitation in the final response.
+- Treat validator findings as recommendations to consider. Apply them only when they are compatible with user instructions and repository constraints.
+- If you make additional edits based on validator suggestions, rerun every applicable validator against the current diff for those edits before responding.
+- For a single user request, count every validator invocation, including failed attempts and reruns after follow-up edits; stop after five invocations total. If unresolved findings remain after five validator invocations, report them instead of running more validators.
+
 ## Usage notes
 
 - If a PR already exists but includes multiple changes, offer to split it by creating a new branch and cherry-picking the intended commit(s).
