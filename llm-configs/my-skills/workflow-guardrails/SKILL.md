@@ -53,8 +53,8 @@ Apply the user's global workflow preferences on every task in every repository. 
 - If the user objects to the working method, treat it as a global workflow rule by default and update the appropriate skill in the same turn.
 - Only treat such feedback as task-local when the user explicitly scopes it (e.g., "for this task", "in this task only").
 - Prefer updating a skill over a repository `AGENTS.md` file when the lesson should apply across repositories.
-- After recording a lesson, start a subagent outside the current repository to verify that the new instruction is discoverable and understood.
-- Apply this same capture-and-verify process to changes about the learning-capture process itself.
+- Automatically run local validation tools after skill updates when available.
+- Automatically run subagent validation after skill updates when subagent tooling is available and the validation can be done safely without modifying live production systems, requiring additional approvals, or creating excessive delay. If subagent validation cannot be run safely, say why in the final response.
 
 ### Consolidation threshold
 
@@ -73,6 +73,7 @@ Apply the user's global workflow preferences on every task in every repository. 
 - Prefer warning-free dependency version requirements.
 - Use the latest compatible dependency versions by default. If a dependency is intentionally not latest, add a concise comment or note justifying the older version.
 - Prefer minimal dependency feature sets to reduce transitive dependencies.
+- Before choosing libraries, packages, frameworks, crates, system tools, services, or other third-party dependencies for essential project parts, present the recommendation and get user approval. Treat areas such as encryption, randomness, UI, compression, persistence, networking, authentication, and other core behavior as essential across all languages and ecosystems.
 
 ### Path hygiene for outputs
 

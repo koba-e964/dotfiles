@@ -14,18 +14,19 @@ The agent must always progress through these phases in order:
 1. Research
 2. Plan
 3. Annotation cycle (human review)
-4. Todo checklist creation
+4. Feature list creation
 5. Implementation (only after explicit approval)
 
 The agent must NEVER skip phases or implement early.
 
 The plan document is the source of truth for implementation.
+The todo/progress list must live in a separate JSON file named `feature_list.json`, not inside `plan.md`.
 
 Approval gate between phases:
 
 - Generate `research.md` first, then pause for explicit user approval.
 - Do not generate `plan.md` until the user approves `research.md`.
-- After generating `plan.md`, pause again and wait for explicit plan approval before implementation.
+- After generating `plan.md` and `feature_list.json`, pause again and wait for explicit plan approval before implementation.
 
 ---
 
@@ -127,6 +128,10 @@ Write:
 
 `<notes_prefix>/plan.md`
 
+Also write:
+
+`<notes_prefix>/feature_list.json`
+
 ## Entry condition for Phase 2
 
 - Allowed only after explicit user approval of `research.md`.
@@ -167,6 +172,44 @@ Explicit assumptions.
 
 Anything requiring clarification.
 
+## feature_list.json must include
+
+- A top-level JSON object.
+- A `features` array.
+- One object per implementation task.
+- Each task object must include:
+  - `id`: stable short string identifier.
+  - `description`: specific, observable, verifiable task.
+  - `validation`: short description of the check that proves the task is done; include a short command line whenever a concrete local check is available.
+  - `passes`: boolean showing whether validation passes.
+
+Example:
+
+```json
+{
+  "features": [
+    {
+      "id": "add-expiration-validation",
+      "description": "Modify src/auth/session.ts to add expiration validation",
+      "validation": "npm test -- session; covers expired and unexpired sessions",
+      "passes": false
+    },
+    {
+      "id": "enforce-expiration",
+      "description": "Update middleware/auth.ts to enforce expiration",
+      "validation": "npm test -- middleware; rejects expired sessions",
+      "passes": false
+    },
+    {
+      "id": "test-expiration-validation",
+      "description": "Add unit tests in tests/session.test.ts",
+      "validation": "npm test -- tests/session.test.ts",
+      "passes": false
+    }
+  ]
+}
+```
+
 ---
 
 # Phase 3: Annotation Cycle
@@ -189,27 +232,18 @@ Repeat this cycle indefinitely until explicit approval.
 
 ---
 
-# Phase 4: Todo Checklist Creation
+# Phase 4: Feature List Creation
 
-Before implementation begins, plan.md must include a checklist.
+Before implementation begins, `<notes_prefix>/feature_list.json` must exist.
 
-Append:
-
-## Implementation Checklist
-
-Break implementation into small atomic tasks.
+Break implementation into small atomic tasks in the `features` array.
 
 Each task must be:
 
 - Specific
 - Observable
 - Verifiable
-
-Example:
-
-- [ ] Modify src/auth/session.ts to add expiration validation
-- [ ] Update middleware/auth.ts to enforce expiration
-- [ ] Add unit tests in tests/session.test.ts
+- Paired with a short validation command whenever one exists
 
 ---
 
@@ -254,13 +288,12 @@ Request clarification.
 
 As tasks are completed:
 
-Update plan.md checklist.
+Update `<notes_prefix>/feature_list.json`.
 
-Mark completed items:
+Set each task's `passes` field to `true` only after its `validation` check passes.
+Leave `passes` as `false` while the task is not done, is actively being worked on, or is blocked.
 
-- [x] Completed task
-
-plan.md becomes the live progress tracker.
+`feature_list.json` is the live progress tracker. `plan.md` remains the approved implementation design.
 
 ---
 
@@ -292,12 +325,14 @@ NEVER:
 - Skip research phase
 - Skip planning phase
 - Ignore plan.md
+- Ignore feature_list.json
 - Ignore user annotations
 - Expand scope silently
 
 ALWAYS:
 
 - Treat plan.md as source of truth
+- Treat feature_list.json as the task progress source of truth
 - Prioritize correctness over speed
 - Prefer consistency over cleverness
 
