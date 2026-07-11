@@ -48,6 +48,7 @@ Impact:
 - Note any breaking changes explicitly in `Impact`.
 - If no test was run, say so directly in `Impact`.
 - If coding agents were involved, append a final `Prompt:` section containing the user prompt that led to the actual code/content changes.
+- Exclude follow-up correction prompts, commit/push-only instructions, and prompts whose only role is to clarify tracker or file format with machine-specific example paths; capture the underlying change request instead.
 - Do not use a later "commit this" or equivalent execution-only instruction unless that instruction itself introduced the change scope.
 
 ## Examples
