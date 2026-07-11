@@ -12,10 +12,12 @@ Apply the user's GitHub Actions trust policy on every workflow change or review.
 ## Trust policy
 
 - **Allowed by tag**: `actions/*`
+- For `actions/*`, use the latest compatible stable tag after checking available tags unless the user explicitly requests a different version.
 - **All other actions**: must be pinned to an exact commit hash and include an inline version comment (e.g., `# v31.9.0`).
 
 ## Workflow checks
 
 - If a non-`actions/*` step uses a version tag (e.g., `@v1`), replace it with the exact commit hash and add the version comment.
+- If an `actions/*` step uses an older tag, update it to the latest compatible stable tag unless the user explicitly asks to pin the older version.
 - Do not introduce new actions that are not pinned unless they are under `actions/*`.
 - If the user supplies a version, look up the exact commit hash for that tag before updating the workflow.
