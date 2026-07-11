@@ -94,6 +94,10 @@ Apply the user's global workflow preferences on every task in every repository. 
 - When running in Codex App and making file changes, include a concise diff in the response by default.
 - If no files changed, explicitly state that no diff exists.
 
+### Release binary size reporting
+
+- When changes could affect compiled binary size, especially dependency or CLI/parser changes, build the release binary and report the before/after byte sizes and delta. If the user provides a prior baseline size, use that baseline explicitly. Do not comma-separate byte counts; write plain digits.
+
 ### Run validators after edits
 
 - After file changes are complete, run every validator in `.codex/agents/` and `~/.codex/agents/` whose documentation explicitly says it applies to the changed files or task domain.
