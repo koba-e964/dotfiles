@@ -38,8 +38,11 @@ Apply the user's global workflow preferences on every task in every repository. 
 
 ### Worktree locations
 
+- For any user-requested repository task that may create files, run measurements with outputs, or edit notes, create or use a dedicated worktree before creating task artifacts or code changes unless the user explicitly says to work in the current checkout.
+- If work accidentally starts in the wrong checkout, stop, create the proper worktree, move only the task artifacts there, and clean up artifacts created by the agent in the wrong checkout.
 - For a repository named `XXX`, create worktrees under `../XXX-worktrees/WORKTREE-NAME/`.
 - Do not create sibling worktrees directly beside the main checkout unless the user explicitly requests a different location.
+- When creating PRs, use a dedicated worktree at that path for the PR branch, commit, push, and PR creation. Do not prepare PR branches directly in the main checkout unless the user explicitly says to.
 
 ### Branch from origin/HEAD for issue work
 
