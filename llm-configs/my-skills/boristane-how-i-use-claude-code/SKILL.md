@@ -135,6 +135,7 @@ Also write:
 ## Entry condition for Phase 2
 
 - Allowed only after explicit user approval of `research.md`.
+- Do not treat the user's initial implementation request as this approval; approval must come after the user has had a chance to review `research.md`.
 
 ## plan.md must include
 
@@ -252,6 +253,7 @@ Each task must be:
 ## Entry condition
 
 Implementation is allowed ONLY if the user explicitly approves the plan.
+Do not infer implementation approval from the original task request, even when that request asks to fix, implement, or create a PR.
 
 Valid approval examples:
 
