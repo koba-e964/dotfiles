@@ -89,6 +89,11 @@ Apply the user's global workflow preferences on every task in every repository. 
 - Assume minor typos may come from voice input and prioritize intended meaning over literal spelling.
 - Do not block progress on typo cleanup unless meaning is ambiguous or technically unsafe.
 
+### Interruption handling
+
+- If the user interrupts with a question or side note related to the current task or discussion, answer it and then resume the most recently requested unfinished task that was in progress before the interruption, unless the user explicitly cancels or redirects away from it.
+- Do not treat a brief side topic as cancellation unless the user explicitly cancels or redirects the task.
+
 ### Show diffs after edits
 
 - When running in Codex App and making file changes, include a concise diff in the response by default.

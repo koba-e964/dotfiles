@@ -181,8 +181,22 @@ Anything requiring clarification.
 - Each task object must include:
   - `id`: stable short string identifier.
   - `description`: specific, observable, verifiable task.
+  - `boundary`: object defining the permitted scope for that entry. It must include:
+    - `files_dirs`: workspace-relative files, directories, or globs that may be touched. Use directories for mechanical tasks such as formatting when file-by-file listing adds noise.
+    - `semantic_changes`: succinct intended behavior/content change. Omit unchanged behavior; assume anything not mentioned is out of scope.
+    - `capability`: succinct allowlist of operation types, commands, tools, and external access. Mention external access only when it is allowed.
   - `validation`: short description of the check that proves the task is done; include a short command line whenever a concrete local check is available.
   - `passes`: boolean showing whether validation passes.
+
+Boundary rules:
+
+- Every feature entry in any `feature_list.json` must have a `boundary` object.
+- Keep boundary values brief and scannable.
+- Apply an allowlist principle to every boundary field: anything not listed is out of scope, including external access, commands, tools, files, directories, and semantic changes.
+- If implementation, validation, or recovery would deviate from any predetermined `boundary`, stop and ask the human for approval before proceeding; if a completed action accidentally deviated, report it immediately.
+- Keep boundaries tight and entry-specific; do not use broad repository-wide file/directory access unless the entry genuinely requires it.
+- Treat the active `feature_list.json` as implicit progress state: update each entry's `passes` value one-by-one as work completes, including after validations, but do not include `feature_list.json` itself in any entry's `files_dirs` boundary unless the feature is specifically about changing the tracker schema or content.
+- During implementation, do not touch files/directories, make semantic changes, run capabilities, or access external systems outside the entry's boundary without pausing for human approval.
 
 Example:
 
@@ -192,18 +206,22 @@ Example:
     {
       "id": "add-expiration-validation",
       "description": "Modify src/auth/session.ts to add expiration validation",
-      "validation": "npm test -- session; covers expired and unexpired sessions",
-      "passes": false
-    },
-    {
-      "id": "enforce-expiration",
-      "description": "Update middleware/auth.ts to enforce expiration",
-      "validation": "npm test -- middleware; rejects expired sessions",
+      "boundary": {
+        "files_dirs": ["src/auth/session.ts"],
+        "semantic_changes": "Add expiration validation.",
+        "capability": "Edit files; run targeted session tests."
+      },
+      "validation": "npm test -- session",
       "passes": false
     },
     {
       "id": "test-expiration-validation",
       "description": "Add unit tests in tests/session.test.ts",
+      "boundary": {
+        "files_dirs": ["tests/session.test.ts"],
+        "semantic_changes": "Add expired/unexpired session tests.",
+        "capability": "Edit files; run targeted tests."
+      },
       "validation": "npm test -- tests/session.test.ts",
       "passes": false
     }
