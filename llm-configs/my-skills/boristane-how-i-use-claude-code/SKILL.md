@@ -181,7 +181,7 @@ Anything requiring clarification.
 - Each task object must include:
   - `id`: stable short string identifier.
   - `description`: specific, observable, verifiable task.
-  - `boundary`: object defining the permitted scope for that entry. It must include:
+  - `boundary`: object defining the permitted scope for that entry. It must contain only these keys:
     - `files_dirs`: workspace-relative files, directories, or globs that may be touched. Use directories for mechanical tasks such as formatting when file-by-file listing adds noise.
     - `semantic_changes`: succinct intended behavior/content change. Omit unchanged behavior; assume anything not mentioned is out of scope.
     - `capability`: succinct allowlist of operation types, commands, tools, and external access. Mention external access only when it is allowed.
