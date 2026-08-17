@@ -1,5 +1,10 @@
 {
     enable = true;
+    ignores = [
+        ".DS_Store"
+        "**/.claude/settings.local.json"
+        ".ideas*.md"
+    ];
     settings = {
         user = {
             name = "koba-e964";
