@@ -18,6 +18,14 @@ Apply the user's global workflow preferences on every task in every repository. 
 - If the user asks to add more scope to the current PR, ask whether to open a new PR instead.
 - When creating or updating a PR, verify the diff only contains the single intended change.
 
+### Process-oriented PR checklists
+
+- When turning a roadmap or PR list into a checklist, divide each PR into process phases by default: implementation, functional test, and self review.
+- Treat "functional test" as human-facing functionality testing: manually run the feature through realistic commands or workflows, inspect what happens, and confirm the behavior makes sense from a user's perspective.
+- Do not list purely automated checks such as formatters, unit tests, linters, or CI commands as functional tests; put those under implementation validation or self review instead.
+- Keep the phase checklist shallow unless the user requests more depth; prefer one checklist level for PRs and one nested level for the process phases.
+- Add missing process tasks from the roadmap, such as branch/worktree setup, PR-specific plan artifacts, validation commands, benchmark comparisons, dependency approval, size reporting, and single-change self review.
+
 ### Rebase only when explicitly told
 
 - Never rebase on your own.
@@ -32,6 +40,13 @@ Apply the user's global workflow preferences on every task in every repository. 
 - Before amending or rewriting commits, check whether the target commits are tagged or reachable from any tag.
 - Do not move, delete, or recreate existing tags unless the user explicitly asks to modify tags after the risk is stated.
 
+### Split follow-up commits by logical concern
+
+- Amending a PR commit is acceptable for same-change cleanup, review feedback that clearly belongs to the original change, or user-requested history cleanup.
+- Before amending an already-pushed PR branch, decide whether the new work is the same logical concern as the existing commit or a distinct follow-up concern.
+- If the new work is a distinct concern, add a separate commit by default even when it belongs in the same PR.
+- If unsure whether to amend or split, ask before rewriting pushed history.
+
 ### Always refresh origin refs
 
 - Before using or referring to any `origin/*` reference, run `git fetch --prune`.
@@ -39,6 +54,7 @@ Apply the user's global workflow preferences on every task in every repository. 
 ### Worktree locations
 
 - For any user-requested repository task that may create files, run measurements with outputs, or edit notes, create or use a dedicated worktree before creating task artifacts or code changes unless the user explicitly says to work in the current checkout.
+- For any task that may involve creating a PR, the plan must identify the branch and the intended worktree in human-meaningful terms before implementation starts, but avoid machine-specific worktree paths in plans unless the user explicitly asks for them. Do not implement PR-bound changes in the main checkout while treating worktree creation as a later cleanup step.
 - If work accidentally starts in the wrong checkout, stop, create the proper worktree, move only the task artifacts there, and clean up artifacts created by the agent in the wrong checkout.
 - For a repository named `XXX`, create worktrees under `../XXX-worktrees/WORKTREE-NAME/`.
 - Do not create sibling worktrees directly beside the main checkout unless the user explicitly requests a different location.
@@ -79,7 +95,13 @@ Apply the user's global workflow preferences on every task in every repository. 
 - When adding dependencies, do not accept default features blindly; set `default-features = false` and explicitly enable only the needed features unless the crate has no defaults or the defaults are intentionally required.
 - Before choosing libraries, packages, frameworks, crates, system tools, services, or other third-party dependencies for essential project parts, present the recommendation and get user approval. Treat areas such as encryption, randomness, UI, compression, persistence, networking, authentication, and other core behavior as essential across all languages and ecosystems.
 
+### Code comment language
+
+- Write newly added code comments in English by default, even in files that already contain comments in another language. Preserve existing comments unless editing them is necessary.
+
 ### Path hygiene for outputs
+
+- When an unrelated concern has already been resolved in the current base, treat it as current state in plans and summaries; avoid provenance commentary unless it affects the task.
 
 - In repo notes, plans, summaries, and proposed commit content, prefer workspace-relative paths over machine-specific absolute paths.
 - Remove local prefixes like `/Users/<name>/...` unless absolute paths are explicitly requested for tooling or reproducibility.
@@ -99,6 +121,15 @@ Apply the user's global workflow preferences on every task in every repository. 
 - When running in Codex App and making file changes, include a concise diff in the response by default.
 - If no files changed, explicitly state that no diff exists.
 
+### Clarify copy-derived implementations
+
+- When the user asks to create a separate implementation file, do not assume they want a copy-derived variant of an existing implementation.
+- Before copying an existing solution as the base for a new solver or experimental file, explicitly ask whether copy-derived work is acceptable, unless the user has already requested copying, porting, or incremental derivation.
+
+### Benchmark execution
+
+- Benchmark workflows and benchmark measurement commands should use release-mode builds by default unless the user explicitly asks to measure debug builds.
+
 ### Release binary size reporting
 
 - When changes could affect compiled binary size, especially dependency or CLI/parser changes, build the release binary and report the before/after byte sizes and delta. If the user provides a prior baseline size, use that baseline explicitly. Do not comma-separate byte counts; write plain digits.
@@ -112,6 +143,13 @@ Apply the user's global workflow preferences on every task in every repository. 
 - Treat validator findings as recommendations to consider. Apply them only when they are compatible with user instructions and repository constraints.
 - If you make additional edits based on validator suggestions, rerun every applicable validator against the current diff for those edits before responding.
 - For a single user request, count every validator invocation, including failed attempts and reruns after follow-up edits; stop after five invocations total. If unresolved findings remain after five validator invocations, report them instead of running more validators.
+
+### Remove PR notes before merge
+
+- Keep PR-specific `codex-notes` available in the PR while review is active.
+- Right before the user merges a PR, remove that PR's `codex-notes` artifacts so they do not land in `origin/HEAD`.
+- This cleanup must be a separate final commit on the PR branch. Do not amend note deletion into the feature/fix commit.
+- Only delete notes that belong to the PR being merged; leave unrelated note directories untouched.
 
 ## Usage notes
 

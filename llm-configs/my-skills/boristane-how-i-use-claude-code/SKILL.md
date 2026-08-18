@@ -147,6 +147,10 @@ High-level approach.
 
 Explicit list with paths.
 
+### Worktree and branch
+
+For any task that may involve creating a PR, identify the implementation branch and intended worktree in human-meaningful terms. Avoid machine-specific worktree paths in plans unless the user explicitly asks for them, while still making it clear that worktree selection is not deferred until after edits begin.
+
 ### Detailed implementation steps
 
 Step-by-step changes.
@@ -194,8 +198,8 @@ Boundary rules:
 - Keep boundary values brief and scannable.
 - Apply an allowlist principle to every boundary field: anything not listed is out of scope, including external access, commands, tools, files, directories, and semantic changes.
 - If implementation, validation, or recovery would deviate from any predetermined `boundary`, stop and ask the human for approval before proceeding; if a completed action accidentally deviated, report it immediately.
-- Keep boundaries tight and entry-specific; do not use broad repository-wide file/directory access unless the entry genuinely requires it.
-- Treat the active `feature_list.json` as implicit progress state: update each entry's `passes` value one-by-one as work completes, including after validations, but do not include `feature_list.json` itself in any entry's `files_dirs` boundary unless the feature is specifically about changing the tracker schema or content.
+- Keep boundaries tight and entry-specific; do not use broad repository-wide file/directory access unless the entry genuinely requires it. Avoid duplicate parent/child entries in `files_dirs`; if a directory is already allowed, do not also list files inside it unless there is a clear boundary reason.
+- Treat the active `feature_list.json` as implicit progress state: update each entry's `passes` value immediately after that individual task's validation passes, before starting unrelated tasks. Do not batch all `passes` updates at the end; this preserves resumability after interruptions. Do not include `feature_list.json` itself in any entry's `files_dirs` boundary unless the feature is specifically about changing the tracker schema or content.
 - During implementation, do not touch files/directories, make semantic changes, run capabilities, or access external systems outside the entry's boundary without pausing for human approval.
 
 Example:
