@@ -1,0 +1,4 @@
+interface:
+  display_name: "Heuristic Contest"
+  short_description: "AHC harnesses and contest-safe workflows"
+  default_prompt: "Use $heuristic-contest to set up a local multi-case scoring harness for an AHC repository."
