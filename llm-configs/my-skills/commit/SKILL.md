@@ -1,13 +1,13 @@
 ---
 name: commit
-description: Write comprehensive Conventional Commit messages using standard commit types. Use when the user asks to create or improve commit messages and needs clear scope, intent, and impact in the commit subject and body.
+description: Write concise Conventional Commit messages using standard commit types. Use when the user asks to create or improve commit messages and needs clear scope without noisy generated prose.
 ---
 
 # Commit
 
 ## Overview
 
-Produce a conventional commit message with a precise subject and informative body.
+Produce a conventional commit message with a precise subject and only the body content that adds real value.
 Follow ordinary Conventional Commits conventions without restricting commit types.
 
 ## Commit Type Rules
@@ -18,7 +18,7 @@ Follow ordinary Conventional Commits conventions without restricting commit type
 
 ## Message Format
 
-Use this structure:
+Use this structure only when a body is useful:
 
 ```text
 <type>(<optional-scope>): <imperative summary>
@@ -43,13 +43,23 @@ Impact:
 
 ## Body Rules
 
-- Always include `Why`, `What`, and `Impact` sections for a comprehensive message.
+- Prefer subject-only commits for small, obvious changes.
+- Prefer the shortest clear subject the repository context supports.
+- Include a body only when it explains non-obvious context, risk, migration notes, or verification that a maintainer would actually need.
+- Do not add boilerplate sections just to fill a template.
 - Mention concrete files/components when they clarify scope.
 - Note any breaking changes explicitly in `Impact`.
-- If no test was run, say so directly in `Impact`.
-- If coding agents were involved, append a final `Prompt:` section containing the user prompt that led to the actual code/content changes.
-- Exclude follow-up correction prompts, commit/push-only instructions, and prompts whose only role is to clarify tracker or file format with machine-specific example paths; capture the underlying change request instead.
-- Do not use a later "commit this" or equivalent execution-only instruction unless that instruction itself introduced the change scope.
+- If no test was run, mention it only when validation would reasonably be expected.
+- Never include `Prompt:` sections or meta-commentary about LLMs, agents, unstaged unrelated work, or process details that are not part of the commit's actual project change.
+- Avoid LLM slop: generic "Why/What/Impact" filler, obvious restatements, and defensive notes that do not help future readers.
+
+## Split Follow-Up Commits By Logical Concern
+
+- Before committing follow-up work, decide whether the new work is the same logical concern as the existing commit or a distinct follow-up concern.
+- Amending a commit is appropriate for same-change cleanup, review feedback that clearly belongs to the original change, or user-requested history cleanup.
+- If a follow-up change fixes or completes the immediately preceding commit's logical change, amend that commit instead of creating a new commit.
+- If the new work is a distinct concern, add a separate commit by default.
+- If unsure whether to amend or split, ask the user before committing or rewriting history.
 
 ## Examples
 

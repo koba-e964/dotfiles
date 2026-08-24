@@ -40,13 +40,6 @@ Apply the user's global workflow preferences on every task in every repository. 
 - Before amending or rewriting commits, check whether the target commits are tagged or reachable from any tag.
 - Do not move, delete, or recreate existing tags unless the user explicitly asks to modify tags after the risk is stated.
 
-### Split follow-up commits by logical concern
-
-- Amending a PR commit is acceptable for same-change cleanup, review feedback that clearly belongs to the original change, or user-requested history cleanup.
-- Before amending an already-pushed PR branch, decide whether the new work is the same logical concern as the existing commit or a distinct follow-up concern.
-- If the new work is a distinct concern, add a separate commit by default even when it belongs in the same PR.
-- If unsure whether to amend or split, ask before rewriting pushed history.
-
 ### Always refresh origin refs
 
 - Before using or referring to any `origin/*` reference, run `git fetch --prune`.
