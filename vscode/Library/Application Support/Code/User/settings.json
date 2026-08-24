@@ -84,6 +84,6 @@
   "breadcrumbs.enabled": false,
   "editor.codeLens": false,
   "workbench.activityBar.location": "hidden",
-  "workbench.secondarySideBar.defaultVisibility": "visible",
+  "workbench.secondarySideBar.defaultVisibility": "hidden",
   "chat.viewSessions.orientation": "stacked",
 }
