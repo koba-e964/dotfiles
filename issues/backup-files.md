@@ -1,5 +1,24 @@
-When nix is reinstalled, the following errors happen.
-We must handle this to make ./install.sh succeeds on the first try.
+# Summary
+
+Handle stale Nix backup files during reinstall.
+
+## Background
+
+When Nix is reinstalled, the installer may find an existing backup file for `/etc/zsh/zshrc`.
+
+## Problem
+
+During `./install.sh`, the Nix installer reports the following error on reinstall.
+
+## Expected
+
+`./install.sh` succeeds on the first try when Nix is reinstalled.
+
+## Done When
+
+- `./install.sh` handles an existing `/etc/zsh/zshrc.backup-before-nix` file without requiring manual cleanup first.
+
+## Notes
 
 ```
 ---- oh no! --------------------------------------------------------------------

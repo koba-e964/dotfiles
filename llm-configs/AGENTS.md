@@ -12,6 +12,7 @@
 
 - For a repository named `XXX`, create worktrees under `../XXX-worktrees/WORKTREE-NAME/`.
 - `AGENTS.md` must be present as a symlink created by `stow`.
+- When handling local issue notes in this repository, follow `issues/README.md` and use `issues/TEMPLATE.md`.
 
 ## Learning Notes
 
