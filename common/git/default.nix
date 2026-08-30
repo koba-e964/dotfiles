@@ -4,6 +4,8 @@
         ".DS_Store"
         "**/.claude/settings.local.json"
         ".ideas*.md"
+        ".hidden*"
+        ".unreviewed-changes.md"
     ];
     settings = {
         user = {
