@@ -18,9 +18,21 @@
         };
         core = {
             editor = "vi";
+            pager = "delta";
         };
         init = {
             defaultBranch = "main";
+        };
+        interactive = {
+            diffFilter = "delta --color-only";
+        };
+        delta = {
+            navigate = true;
+            "line-numbers" = true;
+            "side-by-side" = false;
+            "word-diff-regex" = ".";
+            "wrap-max-lines" = "unlimited";
+            "max-line-length" = 0;
         };
         filter = {
             lfs = {

@@ -22,6 +22,7 @@
     };
 
     home.packages = with pkgs; [
+        delta
         fd
         stow
         pre-commit

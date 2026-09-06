@@ -21,6 +21,7 @@
     };
     home.packages = with pkgs; [
         codex
+        delta
         fd
         ripgrep
         stow
