@@ -11,6 +11,7 @@
     home.stateVersion = "24.05";
     home.sessionPath = [
         "$HOME/.cargo/bin"
+        "$HOME/.local/bin"
     ];
 
     programs = {
