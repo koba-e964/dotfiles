@@ -39,8 +39,8 @@ nix run .#home-manager --extra-experimental-features "nix-command flakes" -- swi
 stow --target="${HOME}" --verbose vscode cargo nix
 stow --target="${HOME}" --verbose zed
 stow --target="${HOME}" --verbose --no-folding llm-configs
-if [ ! -L "${HOME}/AGENTS.md" ]; then
-    echo "Expected ${HOME}/AGENTS.md to be a stow-managed symlink" >&2
+if [ ! -L "${HOME}/.codex/AGENTS.md" ]; then
+    echo "Expected ${HOME}/.codex/AGENTS.md to be a stow-managed symlink" >&2
     exit 1
 fi
 

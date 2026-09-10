@@ -10,9 +10,13 @@
 
 ## Worktrees And Agent Instructions
 
+- When the current task is for a repository-specific file or note, use the current working repository as the default destination. Do not switch to the repository that stores these global instructions unless the user explicitly names it as the target.
 - For a repository named `XXX`, create worktrees under `../XXX-worktrees/WORKTREE-NAME/`.
-- `AGENTS.md` must be present as a symlink created by `stow`.
-- When handling local issue notes in this repository, follow `issues/README.md` and use `issues/TEMPLATE.md`.
+- `~/.codex/AGENTS.md` must be present as a symlink created by `stow`.
+- When handling local issue notes in a repository, first check that repository for `issues/README.md`, `issues/TEMPLATE.md`, existing `issues/*.md`, or an existing issue-note convention. If none exists and the user asks for an issue note, create `issues/<short-kebab-name>.md` in the current repository.
+- `issues/*.md` may be written in the language natural for the current repository or user request, including Japanese. Use English only when the local repository instructions require it.
+- When moving previously displayed or user-provided content into an issue note, preserve its structure and level of detail unless the user explicitly asks for a summary or shorter version.
+- In the dotfiles repository itself, follow `issues/README.md` and use `issues/TEMPLATE.md`.
 
 ## Learning Notes
 
