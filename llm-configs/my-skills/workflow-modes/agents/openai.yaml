@@ -1,0 +1,7 @@
+interface:
+  display_name: "Workflow Modes"
+  short_description: "Run explicit commit, vibe, or plan workflows"
+  default_prompt: "Use $workflow-modes in vibe mode for this repository task."
+
+policy:
+  allow_implicit_invocation: false
