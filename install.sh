@@ -12,6 +12,7 @@ if [ "$(uname)" == "Darwin" ]; then
     brew install --quiet \
         git openssl@3 git-lfs yq jq go git-crypt binutils binwalk openssh ghc graphviz llvm python@3 nodebrew sqlite rbenv ruby-build xz \
         uv ruby gnupg
+    brew install --cask font-hackgen
 else
     # Linux
     true
