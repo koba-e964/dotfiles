@@ -145,8 +145,8 @@ export PATH=$PATH:/usr/local/share/dotnet
 # nodebrew
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 
-# pyvenv
-if [ -f "$HOME/local_python/bin/activate" ]; then
+# Activate the personal environment only outside an existing Python or Nix environment.
+if [ -z "$VIRTUAL_ENV" ] && [ -z "$IN_NIX_SHELL" ] && [ -f "$HOME/local_python/bin/activate" ]; then
   source $HOME/local_python/bin/activate
 fi
 export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"

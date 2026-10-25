@@ -31,5 +31,6 @@
         opam
         codeberg-cli
         ruff
+        pypy3
     ];
 }

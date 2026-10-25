@@ -37,7 +37,7 @@
   "files.associations": {
     "*.sage": "python",
   },
-  "python.analysis.extraPaths": ["~/local_python/lib/python3.12/site-packages"],
+  "python.defaultInterpreterPath": "${env:HOME}/local_python/bin/python",
   "git.ignoreMissingGitWarning": true,
   "solidity.telemetry": false,
   "makefile.configureOnOpen": false,
